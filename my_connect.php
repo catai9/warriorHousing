@@ -6,6 +6,8 @@ $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpassword = '';
 $dbname = 'prdbondi';
+#added comment tst
+
 $mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
 if ($mysqli->connect_errno) 
 {
