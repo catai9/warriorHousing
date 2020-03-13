@@ -5,7 +5,7 @@ function get_mysqli_conn()
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpassword = '';
-$dbname = 'catai';
+$dbname = 'prdbondi';
 $mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);
 if ($mysqli->connect_errno) 
 {
