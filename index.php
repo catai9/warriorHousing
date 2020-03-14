@@ -1,46 +1,26 @@
+<!-- Page 1 -->
+<!-- Registration Page  -->
+
+<head>
+  <title>Warrior Housing</title>
+</head>
+
 <body>
-<h1>Check Cruising Range</h1>
+	<h1>Warrior Housing</h1>
+	<h2>Registration</h2>
 
-<form action="cruisingrange.php" method="get">
-
-<?php
-// Enable error logging: 
-error_reporting(E_ALL ^ E_NOTICE);
-// mysqli connection via user-defined function
-include ('./my_connect.php');
-$mysqli = get_mysqli_conn();
-?>
-
-<?php
-// SQL statement
-$sql = "SELECT a.aid, a.aname "
-	. "FROM aircraft a";
-	
-// Prepared statement, stage 1: prepare
-$stmt = $mysqli->prepare($sql);
-
-// Prepared statement, stage 2: execute
-$stmt->execute();
-
-// Bind result variables 
-$stmt->bind_result($aircraft_id, $aircraft_name); 
-
-/* fetch values */ 
-echo '<label for="aid">Pick Aircraft: </label>'; 
-echo '<select name="aid">'; 
-while ($stmt->fetch()) 
-{
-printf ('<option value="%s">%s</option>', $aircraft_id, $aircraft_name); 
-}
-echo '</select><br>'; 
-
-/* close statement and connection*/ 
-$stmt->close(); 
-$mysqli->close();
-?>
-
-<br>
-<input type="submit" value="Continue"/>
-</br>
-</form>
+    <!-- Directs to the signUpComplete.php when the user presses the Continue button. 
+    Uses post as it is more secure than get. -->
+    <div>
+        <form action="signUpComplete.php" method="post">
+            <!-- Stores the user inputs into variables to be fetched in another file. -->
+            Name: <br>    
+            <input type="text" name="name" required/><br>
+            Email: <br>   
+            <input type="email" name="email" required/><br>
+            Password: <br>   
+            <input type="password" name="password" required/><br>
+            <input type="submit" name="submit" class="pink" value="Continue"/>
+        </form>
+    </div>
 </body>
