@@ -7,13 +7,13 @@ if (isset($_POST['search']))
     $search_result =filterTable($query);
 }
 else{
-    $query="Select * FROM `Rental_Listing`";
+    $query="SELECT `Rental_Listing_ID`,`House_Number`,`Street_Name`,`City`,`Rent_Per_Person`,`Vacancies` FROM `Rental_Listing`";
     $search_result =filterTable($query);
 }
 
 function filterTable($query)
 {
-    $connect = mysqli_connect("localhost","root","root","warrior_housing");
+    $connect = mysqli_connect("localhost","root","root","warrior_ housing","3306");
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
 }
@@ -35,7 +35,7 @@ function filterTable($query)
         
         <form action="searchFunctionality.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
-            <input type="submit" name="search" value="Filter"><br><br>
+            <input type="submit" name="search" value="Search"><br><br>
             
             <table>
                 <tr>
