@@ -22,5 +22,7 @@
             <input type="password" name="password" required/><br>
             <input type="submit" name="submit" class="pink" value="Continue"/>
         </form>
+        <div>Already have an account?</div>
+        <br><center><a href="login.php" class="button">Login</a></br></center>
     </div>
 </body>
