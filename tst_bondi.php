@@ -61,7 +61,7 @@
                 echo '<th>House_Number</th>';
                 echo '<th>Street_Name</th>';
                 echo '<th>City</th>';
-                echo '<th>Rent_Per_Person</th>';
+                echo '<th>Rent</th>';
             echo '</tr>';
         while ($stmt->fetch()) {
             echo '<tr><td>' . $House_Number . '</td><td>' . $Street_Name . '</td><td>' . $City . '</td><td>'. $Rent_Per_Person . '</td><tr>';

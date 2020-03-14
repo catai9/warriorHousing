@@ -30,7 +30,7 @@
 			// SQL statement (change to reflect what you need).
 			// Will probably be the main change (and hardest change) that you do.
 			$sql = "SELECT rental_listing.House_Number, rental_listing.Street_Name, rental_listing.City, rental_listing.Rent_Per_Person 
-            FROM rental_listing WHERE Rental_Listing_ID = ?";
+            FROM rental_listing WHERE Rental_Listing_ID = 20001";
 				
 			// Prepared statement, stage 1: prepare
             $stmt = $mysqli->prepare($sql);
@@ -40,10 +40,10 @@
             //$Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
             //$Tag =  $_GET['Tag'];
             //$Updated_Tag =  $_GET['Updated_Tag'];
-            $Rental_Listing_ID = 20001;
+            //$Rental_Listing_ID = 20001;
 
             // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-            $stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
+            //$stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
             //what does this do? it binds the php to SQL vars
                 // Prepared statement, stage 2: execute
                 $stmt->execute();
