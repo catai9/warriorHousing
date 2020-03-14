@@ -29,24 +29,24 @@
 // TO DO: CHANGE SQL STATEMENT
 			// SQL statement (change to reflect what you need).
 			// Will probably be the main change (and hardest change) that you do.
-			$sql = "SELECT r.House_Number, r.Street_Name, r.City, r.Rent_Per_Person "
-                . "FROM Rental_Listing r" 
-                . "WHERE Rental_Listing_ID = ?";
+			$sql = "SELECT rental_listing.House_Number, rental_listing.Street_Name, rental_listing.City, rental_listing.Rent_Per_Person 
+            FROM rental_listing WHERE Rental_Listing_ID = ?";
 				
 			// Prepared statement, stage 1: prepare
             $stmt = $mysqli->prepare($sql);
             
             // (2) Updated tag is the name of the playlist that the song is being transferred to
-            $User_ID =  $_GET["User_ID"]; 
-            $Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
-            $Tag =  $_GET['Tag'];
-            $Updated_Tag =  $_GET['Updated_Tag'];
+            //$User_ID =  $_GET["User_ID"]; 
+            //$Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
+            //$Tag =  $_GET['Tag'];
+            //$Updated_Tag =  $_GET['Updated_Tag'];
+            $Rental_Listing_ID = 20001;
 
-// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
-//what does this do? it binds the php to SQL vars
-			// Prepared statement, stage 2: execute
-			$stmt->execute();
+            // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
+            $stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
+            //what does this do? it binds the php to SQL vars
+                // Prepared statement, stage 2: execute
+                $stmt->execute();
 
 // TO DO: BIND NEEDED RESULT VARIABLES.
 			// Bind result variables 
@@ -56,7 +56,7 @@ $stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL p
 
         // TO DO: CHANGE FORM OUTLINE.
                     /* fetch values */ 
-                    echo '<table>';
+        echo '<table>';
             echo '<tr>';
                 echo '<th>Address</th>';
                 echo '<th>_</th>';
@@ -64,12 +64,12 @@ $stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL p
                 echo '<th>Rent</th>';
             echo '</tr>';
         while ($stmt->fetch()) {
-            echo '<tr><td>' . $House_Number . '</td><td>' . $Street_Name . '</td><td>' . $City . '</td><td>'. $Rent_Per_Person . '</td><td>'. $v5 . '</td><td>';
+            echo '<tr><td>' . $House_Number . '</td><td>' . $Street_Name . '</td><td>' . $City . '</td><td>'. $Rent_Per_Person . '</td><tr>';
         }
         echo '</table>';
 
             // add intake functionality for the ratingand comment 
-            
+
 			/* close statement and connection*/ 
 			$stmt->close(); 
 			$mysqli->close();
