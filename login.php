@@ -15,9 +15,10 @@
          Uses post as it is more secure than get -->
         <form action="loginCheck.php" method="post">
 
-            <p>Enter email: </p>
+            <div>Enter email: </div>
             <!-- Stores the user input of email into a variable named email. -->
             <input type="text" name="email" required/><br>
+            <div>Enter password: </div>
             <input type="password" name="password" required/><br>
             <input type="submit" name="submit" class="teal" value="Continue"/>
         </form>
