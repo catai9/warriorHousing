@@ -4,10 +4,7 @@
 <head>
   <title>Listing Details</title>
 </head>
-<?php
-$user_id = $_POST["user_id"]; 
-$Rental_Listing_ID = $_POST["rental_listing_ID"]; 
-?>
+
 <body>
 	<h1>Warrior Housing</h1>
 	
@@ -16,6 +13,7 @@ $Rental_Listing_ID = $_POST["rental_listing_ID"];
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
 	
 	<?php
+	/*
 	echo '<form action="sortListing.php" method="post" ';
 		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 		echo '<br>
@@ -23,9 +21,16 @@ $Rental_Listing_ID = $_POST["rental_listing_ID"];
 			<input type="submit" value="Sort"/>
 		</br>
 	</form>';
+	*/
 	?>
+	
 
 	<?php
+
+			
+			$user_id = $_POST["user_id"]; 
+			$Rental_Listing_ID = $_POST["rental_listing_ID"]; 
+			
 			// Enable error logging: 
 			error_reporting(E_ALL ^ E_NOTICE);
 			// mysqli connection via user-defined function
