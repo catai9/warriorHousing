@@ -11,7 +11,7 @@
     <h2>Login Page</h2>
     
     <div>
-        <!-- Directs to the welcome.php if the user successfully log ins.
+        <!-- Directs to the loginCheck.php to check if the user successfully log ins.
          Uses post as it is more secure than get -->
         <form action="loginCheck.php" method="post">
 
