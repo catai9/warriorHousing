@@ -4,9 +4,6 @@
 <head>
   <title>buyerHome</title>
 </head>
-<?php
-$user_id = $_POST["user_id"]; 
-?>
 <body>
 	<h1>Warrior Housing</h1>
 	
@@ -14,16 +11,15 @@ $user_id = $_POST["user_id"];
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
 	<?php
-	echo '<form action="searchFunctionality_input.php" method="post" ';
-		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-		echo '<br>
-			<!-- The button for search -->
-			<input type="submit" value="Search"/>
-		</br>
-	</form>';
-	?>
+		$user_id = $_POST["user_id"];
+		echo '<form action="searchFunctionality_input.php" method="post" ';
+			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+			echo '<br>
+				<!-- The button for search -->
+				<input type="submit" value="Search"/>
+			</br>
+		</form>';
 
-	<?PHP
 			// Enable error logging: 
 			error_reporting(E_ALL ^ E_NOTICE);
 			// mysqli connection via user-defined function
