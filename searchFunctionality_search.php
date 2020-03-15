@@ -6,7 +6,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 // mysqli connection via user-defined function
 
 include('./my_connect.php');
-$mysqli = get_mysqli_conn();
+$mysqli1 = get_mysqli_conn();
+$mysqli2 = get_mysqli_conn();
 
 // SQL statement
 $sql = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
@@ -17,21 +18,24 @@ $sql2 = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Va
 			WHERE r.City =?";
 //does this change 
 // Prepared statement, stage 1: prepare
-$stmt = $mysqli->prepare($sql);
-$stmt = $mysqli->prepare($sql2);
+$stmt1 = $mysqli1->prepare($sql);
+$stmt2 = $mysqli2->prepare($sql2);
 
 // Prepared statement, stage 2: bind and execute 
 
-$query = $_GET['search']; 
-$query = $_GET['city']; 
+$query1 = $_GET['search']; 
+$query2 = $_GET['city']; 
 
 
 // "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt->bind_param('s', $query); 
-$stmt->execute();
+$stmt1->bind_param('s', $query1); 
+$stmt1->execute();
+$stmt2->bind_param('s', $query2); 
+$stmt2->execute();
 
 /* fetch values */ 
-$stmt->bind_result($v1, $v2, $v3, $v4, $v5, $v6, $v7); 
+$stmt1->bind_result($v1, $v2, $v3, $v4, $v5, $v6, $v7); 
+$stmt2->bind_result($v1, $v2, $v3, $v4, $v5, $v6, $v7); 
 
 echo '<table>';
 	echo '<table style="width:100%">';
@@ -44,14 +48,19 @@ echo '<table>';
 	echo '<th>Rent Per Person</th>';
 	echo '<th>Length of Availability</th>';
 	echo '</tr>';
-while ($stmt->fetch()) {
+while ($stmt1->fetch()) {
+	echo '<tr><td>' . $v1 . '</td><td>' . $v2 . '</td><td>' . $v3 . '</td><td>'. $v4 . '</td><td>'. $v5 . '</td><td>'. $v6 . '</td><td>'. $v7 . '</td><td>';
+}
+while ($stmt2->fetch()) {
 	echo '<tr><td>' . $v1 . '</td><td>' . $v2 . '</td><td>' . $v3 . '</td><td>'. $v4 . '</td><td>'. $v5 . '</td><td>'. $v6 . '</td><td>'. $v7 . '</td><td>';
 }
 echo '</table>';
 
 /* close statement and connection*/ 
-$stmt->close(); 
-$mysqli->close();
+$stmt1->close(); 
+$stmt2->close(); 
+$mysqli1->close();
+$mysqli2->close();
 ?>
 
 <form id="form3" action="searchFunctionality_input.php" method="get">
