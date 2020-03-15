@@ -17,6 +17,16 @@ input[type=submit] {
   margin: 0 auto;
 }
 
+input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
 .link{
     color: purple;
     background-color: white;
@@ -27,6 +37,15 @@ input[type=submit] {
 .purple{
     background-color: purple;
     color: white;
+}
+
+.purple.right {
+    float:right;
+}
+
+.purple.center{
+    margin: 0 auto;
+    display: block;
 }
 
 div {
@@ -50,4 +69,5 @@ a.button {
 p {
     text-align: left;
     margin-bottom: 0;
+    font-size: 30px;
 }

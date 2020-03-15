@@ -49,7 +49,7 @@
             echo '<div>Listing successfully inserted.<br><br>';
             echo '<form action="uploadListing.php" method="post">';
             echo '<input type="hidden" name="user_id" value="' . $userId . '"/>'; 
-            echo '<input type="submit" name="submit" sclass="blue" value="Upload Another Listing"/>';
+            echo '<input type="submit" name="submit" class="blue" value="Upload Another Listing"/>';
             echo '</form></div>';
         }
         // Prints message to the user if the guest was not inserted into the table.
