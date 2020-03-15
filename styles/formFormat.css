@@ -22,6 +22,11 @@ input[type=text],[type=password],[type=email], select, input[type=date], option,
   box-sizing: border-box;
 }
 
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+  }
+
 input[type=submit] {
   /*By default, makes all the buttons pink. Else, colour-codes them to their respective option colours on the Home page.*/
   width: 25%;
@@ -68,7 +73,7 @@ div {
 }
 a {
     font-size: 20px;
-    text-align: center !important;
+    float: right;
 }
 p {
     text-align: left;
