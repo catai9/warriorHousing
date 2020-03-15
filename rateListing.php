@@ -72,8 +72,8 @@
 			/* close statement and connection*/ 
 			$stmt->close(); 
             $mysqli->close();
-		?>
-            <form action="rateListing_submit.php" method="get">
+	
+           echo'<form action="rateListing_submit.php" method="get">
            <!--add intake functionality for the ratingand comment -->
 		<br>
             Please Enter Rating: (1 is lowest, 5 is highest)<br>
@@ -85,6 +85,7 @@
             <input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>
 			<input type="submit" value="Submit Rating"/>
 		</br>
-	</form>
+    </form>';
+    ?>
 </body>
 
