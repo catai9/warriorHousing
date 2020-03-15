@@ -24,13 +24,13 @@ $user_id = $_POST["user_id"];
             Search by Street Name<br>
             <input type="text" name="search"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Submit search"/>
+			<input type="submit" value="Submit Search"/>
 		</br>
 		<br>
             Search by City<br>
             <input type="text" name="city"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Enter city"/>
+			<input type="submit" value="Submit Search"/>
 		</br>
 	</form>
 
