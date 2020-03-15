@@ -1,6 +1,5 @@
-<!-- TO DO: CHANGE BELOW COMMENTS -->
 <!-- Page 3 -->
-<!-- Page Details - Buyer Home Page -->
+<!-- Buyer Home Page -->
 
 <head>
   <title>buyerHome</title>
@@ -74,7 +73,7 @@
             echo '</tr>';
             echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' . $house_number . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>';
 			echo '</table>';
-			echo '<form action="searchListing.php" method="post"';
+			echo '<form action="rateListing.php" method="post"';
 			echo '<br>';
 				echo '<!-- The button for rate -->';
 				echo '<input type="submit" value="Further Details"/>';
