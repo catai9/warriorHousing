@@ -13,7 +13,7 @@
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form action="buyerHome.php" method="get">
+	<form action="rateListing_submit.php" method="get">
 
 		<?php
 			// Enable error logging: 
@@ -36,11 +36,10 @@
             $stmt = $mysqli->prepare($sql);
             
             // (2) Updated tag is the name of the playlist that the song is being transferred to
-            //$User_ID =  $_GET["User_ID"]; 
-            //$Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
-            //$Tag =  $_GET['Tag'];
-            //$Updated_Tag =  $_GET['Updated_Tag'];
-            $Rental_Listing_ID = 20001;
+            $User_ID =  $_GET["User_ID"]; 
+            $Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
+            //$Rental_Listing_ID = 20001;
+            // how does user id get to the right place? 
 
             // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
             $stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
@@ -75,46 +74,11 @@
 		?>
 
            <!--add intake functionality for the ratingand comment -->
-                <form id="form1" action="rateListing_submit.php" method="get">
-
-
-                </form>
 		<br>
             Please Enter Rating: (1 is lowest, 5 is highest)<br>
             <input type="text" name="rating_score"/>	<br>
             Please Enter Comments:<br>
             <input type="text" name="rating_comment"/>	<br>
-
-             <?php
-			// Enable error logging: 
-			error_reporting(E_ALL ^ E_NOTICE);
-			// mysqli connection via user-defined function
-			include ('./my_connect.php');
-            $mysqli = get_mysqli_conn();
-
-
-            $sql = "INSERT INTO rating
-            VALUES (?, ?, ?, ?)"; 
-
-
-            // Prepared statement, stage 1: prepare
-            $stmt = $mysqli->prepare($sql);
-
-            //these values are inputted by the user
-            $Rental_Listing_ID =  $_POST["Client_ID"]; //TODO Handle GET parameters
-            $User_ID =  $_POST['First_Name'];
-            $Score =  rating_score;
-            $Comments =  $_POST["Email"];//TODO Handle GET parameters
-
-
-            // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-            $stmt-> bind_param('ssss', $Client_ID, $First_Name, $Last_Name, $Email);//TODO Bind Php variables to MySQL parameters
-		    ?>
-
-
-            
-
-
 			<!-- The button for this form. -->
 			<input type="submit" value="Submit Rating"/>
 		</br>
