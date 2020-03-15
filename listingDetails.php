@@ -26,11 +26,6 @@
 	
 
 	<?php
-
-			
-			$user_id = $_POST["user_id"]; 
-			$Rental_Listing_ID = $_POST["rental_listing_ID"]; 
-			
 			// Enable error logging: 
 			error_reporting(E_ALL ^ E_NOTICE);
 			// mysqli connection via user-defined function
@@ -49,6 +44,7 @@
 						
 			$stmt = $mysqli->prepare($sql);	
 
+			$user_id = $_POST["user_id"]; 
 			$Rental_Listing_ID =  $_POST['Rental_Listing_ID']; // not actually sure what my parameters are 
 						
 			//$Rental_Listing_ID = 20001;
