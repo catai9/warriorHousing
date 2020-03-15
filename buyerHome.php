@@ -6,7 +6,8 @@
 </head>
 <?php
 
-// $User_ID = $_Get["User_ID"]; -->
+ //$User_ID = $_Get["User_ID"]; 
+$User_ID = 10000; 
 
 ?>
 <body>
@@ -16,21 +17,21 @@
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
 	<form action="searchListing.php" method="post"
-		$User_ID
+		
 		<br>
 			<!-- The button for search -->
 			<input type="submit" value="Search"/>
 		</br>
 	</form>
 	<form action="filterListing.php" method="post"
-		$User_ID
+		 
 		<br>
 			<!-- The button for filter -->
 			<input type="submit" value="Filter"/>
 		</br>
 	</form>
 	<form action="sortListing.php" method="post"
-		$User_ID
+		 
 		<br>
 			<!-- The button for this form. -->
 			<input type="submit" value="Sort"/>
@@ -73,9 +74,13 @@
             echo '</tr>';
             echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' . $house_number . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>';
 			echo '</table>';
-			echo '<form action="rateListing.php" method="post"';
+			
+			
+			
+			// 
+			echo '<form action="rateListing.php" method="get"';
 			echo '<br>';
-				echo '<!-- The button for rate -->';
+							echo '<!-- The button for rate -->';
 				echo '<input type="submit" value="Further Details"/>';
 			echo '</br>';
 			echo '</form>';
@@ -83,5 +88,6 @@
 			/* close statement and connection*/ 
 			$stmt->close(); 
 			$mysqli->close();
+			$User_ID = 10000; 
 		?>
 </body>

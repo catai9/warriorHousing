@@ -36,9 +36,11 @@
             $stmt = $mysqli->prepare($sql);
             
             // (2) Updated tag is the name of the playlist that the song is being transferred to
-            $User_ID =  $_GET["User_ID"]; 
-            $Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
-            //$Rental_Listing_ID = 20001;
+            //$User_ID =  $_GET["User_ID"]; 
+            $User_ID = 10000;
+            //$Rental_Listing_ID =  $_GET['Rental_Listing_ID']; // not actually sure what my parameters are 
+            
+            $Rental_Listing_ID = 20001;
             // how does user id get to the right place? 
 
             // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
