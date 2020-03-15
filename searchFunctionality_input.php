@@ -1,4 +1,3 @@
-<!-- Page 9 -->
 <!-- Search Listing Page -->
 
 <head>

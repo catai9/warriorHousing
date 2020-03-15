@@ -1,4 +1,3 @@
-<!-- Page 13 -->
 <!-- listing Details -->
 
 <head>

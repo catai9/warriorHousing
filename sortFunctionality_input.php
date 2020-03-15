@@ -1,4 +1,3 @@
-<!-- Page 9 -->
 <!-- Rate Listing Page -->
 
 <head>

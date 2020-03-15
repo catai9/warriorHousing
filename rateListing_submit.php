@@ -1,5 +1,4 @@
-<!-- Page 9 -->
-<!-- Rate Listing Page -->
+<!-- Rate Listing Continued -->
 
 <head>
   <title>Warrior Housing</title>

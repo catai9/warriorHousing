@@ -1,4 +1,3 @@
-<!-- Page 1.2 -->
 <!-- Registration Confirmation Page  -->
 
 <head>

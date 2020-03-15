@@ -1,4 +1,3 @@
-<!-- Page 9 -->
 <!-- Rate Listing Page -->
 
 <head>
@@ -17,7 +16,7 @@
 			include ('./my_connect.php');
 			$mysqli = get_mysqli_conn();
 
-        // must grab variables coming in and use them in the below sql query 
+            // must grab variables coming in and use them in the below sql query 
 
 			$sql = "SELECT rental_listing.House_Number, rental_listing.Street_Name, rental_listing.City, rental_listing.Rent_Per_Person 
             FROM rental_listing WHERE rental_listing_ID = ?";

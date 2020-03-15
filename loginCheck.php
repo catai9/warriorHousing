@@ -1,4 +1,3 @@
-<!-- Page 2.2 -->
 <!-- Login Page Continued  -->
 
 <head>

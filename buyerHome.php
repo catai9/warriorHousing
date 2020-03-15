@@ -1,4 +1,3 @@
-<!-- Page 3 -->
 <!-- Buyer Home Page -->
 
 <head>
@@ -7,7 +6,6 @@
 <body>
 	<h1>Warrior Housing</h1>
 	
-<!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
 	<?php
@@ -15,9 +13,17 @@
 		echo '<form action="searchFunctionality_input.php" method="post"> ';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 			echo '<br>
-				<!-- The button for search -->
-				<input type="submit" value="Search"/>
-			</br>
+					<!-- The button for search -->
+					<input type="submit" value="Search"/>
+				</br>
+		</form>';
+
+		echo '<form action="sortFunctionality_input.php" method="post"> ';
+			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+			echo '<br>
+					<!-- The button for sort -->
+					<input type="submit" value="Sort"/>
+				</br>
 		</form>';
 
 			// Enable error logging: 
