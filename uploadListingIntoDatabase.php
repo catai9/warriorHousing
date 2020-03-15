@@ -6,8 +6,8 @@
 </head>
 
 <body>
-    <h1>Warrior Housing</h1>
-	<h2>Upload Listing Confirmation</h2>
+    <a href="login.php" class="button">Log Out</a>
+    <h1>Warrior Housing</h1>    
 
     <?php
         // Enable error logging: 
@@ -46,21 +46,19 @@
         $stmt->bind_param('ssssssssssssssss', $country, $city, $streetName, $houseNo, $vacancies, $price, $availabilityLength, $parking, $ac, $washer, $furnished, $wifi, $electricity, $water, $rentalType, $userId); 
         
         if($stmt->execute()){
-            echo '<p>Listing successfully inserted.</p>';
+            echo '<div>Listing successfully inserted.<br><br>';
             echo '<form action="uploadListing.php" method="post">';
             echo '<input type="hidden" name="user_id" value="' . $userId . '"/>'; 
-            echo '<input type="submit" name="submit" class="teal" value="Upload Another Listing"/>';
-            echo '</form>';
-            echo '<br><a href="login.php" class="button">Log Out</a></br>';
+            echo '<input type="submit" name="submit" sclass="blue" value="Upload Another Listing"/>';
+            echo '</form></div>';
         }
         // Prints message to the user if the guest was not inserted into the table.
         else {
-            echo '<p>Listing not inserted. Please try again.</p>';
+            echo '<div>Listing not inserted. Please try again.<br><br>';
             echo '<form action="uploadListing.php" method="post">';
             echo '<input type="hidden" name="user_id" value="' . $userId . '"/>'; 
-            echo '<input type="submit" name="submit" class="teal" value="Try Again"/>';
-            echo '</form>';
-            echo '<br><a href="login.php" class="button">Log Out</a></br>';
+            echo '<input type="submit" name="submit" class="blue" value="Try Again"/>';
+            echo '</form></div>';
         }
 
         // Close statement and connection.
