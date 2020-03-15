@@ -23,7 +23,7 @@
         echo '<div>
             <form action="signUpComplete.php" method="post">';
         
-            // If statement executes successfully, then prints a success message to the user.
+        // If statement executes successfully, then prints a success message to the user.
         echo '<input type="hidden" name="name" value="' . $name . '"/>'; 
         echo '<input type="hidden" name="email" value="' . $email . '"/>'; 
         echo '<input type="hidden" name="password" value="' . $password . '"/>'; 
