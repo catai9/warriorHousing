@@ -5,7 +5,7 @@
   <title>buyerHome</title>
 </head>
 <?php
-$User_ID = $_Get["User_ID"]; 
+$user_id = $_POST["user_id"]; 
 ?>
 <body>
 	<h1>Warrior Housing</h1>

@@ -53,9 +53,9 @@
                 if ($stmt2->fetch()) {
                     echo '<form action="buyerHome.php" method="post">';
                     echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-                    echo '</form>';
                     echo '<p>Successful Login</p>';
                     echo '<input type="submit" name="submit" class="teal" value="Proceed"/>';
+                    echo '</form>';
                 }
                 // Else, user is a seller. Redirect to seller page.
                 else {
