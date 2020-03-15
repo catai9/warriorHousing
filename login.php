@@ -15,9 +15,9 @@
         <form action="loginCheck.php" method="post">
             <p>Enter email: </p>
             <!-- Stores the user input of email into a variable named email. -->
-            <input type="text" name="email" required/>
+            <input type="text" name="email" placeholder="Please enter an email." required/>
             <p>Enter password: </p>
-            <input type="password" name="password" required/> <br><br>
+            <input type="password" name="password" placeholder="Please enter a password." required/> <br><br>
             <input type="submit" name="submit" class="teal" value="Log in"/> <br>
         </form>
         Need an Account? <br>

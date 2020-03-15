@@ -6,8 +6,8 @@
 </head>
 
 <body>
+    <a href="index.php">Back</a></br>
     <h1>Warrior Housing</h1>
-	<h2>Registration Continued</h2>
 
     <?php
         // Enable error logging: 
@@ -31,23 +31,22 @@
         if($category == 'buyer') {
             if(strpos($email,"@uwaterloo.ca") !== false) {
                 echo '<input type="hidden" name="studentID" value="Y"/>'; 
-                echo '<p>You are a student. Please continue if this is correct.</p>';
+                echo 'You are a student. Please continue if this is correct.<br><br>';
                 echo '<input type="submit" name="submit" class="pink" value="Continue"/>';
             }
             else {
                 echo '<input type="hidden" name="studentID" value="N"/>'; 
-                echo '<p>You are not a student. Please continue if this is correct.</p>';
+                echo 'You are not a student. Please continue if this is correct.<br><br>';
                 echo '<input type="submit" name="submit" class="pink" value="Continue"/>';
             }
         } else {
             echo 
             'Phone Number: 
-                    <input placeholder="0000000000" type="tel" id="phone" name="phone" required> <br> <br>
+                    <input placeholder="000-000-0000" type="tel" name="phone" required> <br> <br>
                     <input type="submit" name="submit" class="pink" value="Continue"/>';
         }
 
         echo '</form>
-            <br><a href="index.php" class="button">Go Back</a></br>
         </div>';
 
     ?>
