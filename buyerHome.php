@@ -14,31 +14,11 @@ $user_id = $_POST["user_id"];
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
 	<?php
-	echo '<form action="searchListing.php" method="post" ';
+	echo '<form action="searchFunctionality_input.php" method="post" ';
 		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 		echo '<br>
 			<!-- The button for search -->
 			<input type="submit" value="Search"/>
-		</br>
-	</form>';
-	?>
-
-	<?php
-	echo '<form action="filterListing.php" method="post" ';
-		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-		echo '<br>
-			<!-- The button for search -->
-			<input type="submit" value="Filter"/>
-		</br>
-	</form>';
-	?>
-	
-	<?php
-	echo '<form action="sortListing.php" method="post" ';
-		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-		echo '<br>
-			<!-- The button for search -->
-			<input type="submit" value="Sort"/>
 		</br>
 	</form>';
 	?>
@@ -87,6 +67,7 @@ $user_id = $_POST["user_id"];
 			echo '</br>';
 			echo '</form>';
 			}
+			echo '<br><a href="login.php" class="button">Log Out</a></br>';
 			/* close statement and connection*/ 
 			$stmt->close(); 
 			$mysqli->close();
