@@ -5,11 +5,6 @@
   <title>Warrior Housing</title>
 </head>
 
-
-<?php
-$user_id = $_POST["user_id"];
-?>
-
 <body>
 	<h1>Warrior Housing</h1>
 	<!-- TO DO: CHANGE PAGE SUBTITLE -->
@@ -18,25 +13,19 @@ $user_id = $_POST["user_id"];
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form id="form11" action="searchFunctionality_search.php" method="post">		
-	<input type="hidden" name="user_id" value="' . $user_id . '"/>
+	<form id="form11" action="sortFunctionality_search.php" method="get">		
 	<br>
-            Search by Street Name<br>
+            Sort by Street Name<br>
             <input type="text" name="search"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Submit search"/>
+			<input type="submit" value="Search"/>
 		</br>
-		<br>
-            Search by City<br>
-            <input type="text" name="city"/>	<br>
+    <br>
+            Sort by City Name<br>
+            <input type="text" name="sort"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Enter city"/>
+			<input type="submit" value="Search"/>
 		</br>
 	</form>
-
-<form id="form3" action="buyerHome.php" method="post">
- <input type="hidden" name="user_id" value="' . $user_id . '"/>
-	<input type="submit" value="Back To Home"/>
-</form>
 </body>
 
