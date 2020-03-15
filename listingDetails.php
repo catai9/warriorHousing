@@ -64,21 +64,35 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 
 				// fix table to be right number of columns 
 			//printing output in html table
-			while ($stmt->fetch()) {
+			
 			echo '<table style="width:100%">';
             echo '<tr>';
                 echo '<th>Rental Listing ID</th>';
                 echo '<th>Adress</th>';
                 echo '<th>Vacancies</th>';
                 echo '<th>Rent Per Person</th>';
-                echo '<th>Length of Availability</th>';
-            echo '</tr>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+				echo '<th>Length of Availability</th>';
+			echo '</tr>';
+
+			while ($stmt->fetch()) {
 			echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' 
 			. $house_number . ','.$country. '</td><td>'. $vacancies . '</td><td>'. $rent_per_person 
 			. '</td><td>'. $availability_length. '</td><td>'. $parking . '</td><td>'. $a_c 
 			. '</td><td>'. $washer_dryer . '</td><td>'. $furnished . '</td><td>'. $electricity 
-			.'</td><td>'. $water;
+			.'</td><td>'. $water . '</td><tr>';
+			}
 			echo '</table>';
+
+			
 			echo '<form action="rateListing.php" method="post"';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 			echo '<br>';
@@ -86,7 +100,7 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 				echo '<input type="submit" value="Further Details"/>';
 			echo '</br>';
 			echo '</form>';
-			}
+			
 			/* close statement and connection*/ 
 			$stmt->close(); 
 			$mysqli->close();
