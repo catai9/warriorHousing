@@ -1,8 +1,8 @@
-<!-- Page 9.2 -->
 <!-- Upload Listing into Database Page  -->
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/formFormat.css">
 </head>
 
 

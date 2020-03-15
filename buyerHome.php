@@ -18,14 +18,6 @@
 				</br>
 		</form>';
 
-		echo '<form action="sortFunctionality_input.php" method="post"> ';
-			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-			echo '<br>
-					<!-- The button for sort -->
-					<input type="submit" value="Sort"/>
-				</br>
-		</form>';
-
 			// Enable error logging: 
 			error_reporting(E_ALL ^ E_NOTICE);
 			// mysqli connection via user-defined function
