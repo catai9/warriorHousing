@@ -18,13 +18,13 @@
             Sort by Street Name<br>
             <input type="text" name="search"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Submit search"/>
+			<input type="submit" value="Search"/>
 		</br>
     <br>
             Sort by City Name<br>
             <input type="text" name="sort"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Submit sort"/>
+			<input type="submit" value="Search"/>
 		</br>
 	</form>
 </body>

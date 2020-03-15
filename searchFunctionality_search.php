@@ -1,6 +1,9 @@
 <body>
 <h1>Search Street Name</h1>
 <?php
+
+$user_id = $_POST["user_id"];
+
 // Enable error logging: 
 error_reporting(E_ALL ^ E_NOTICE);
 // mysqli connection via user-defined function
@@ -63,7 +66,8 @@ $mysqli1->close();
 $mysqli2->close();
 ?>
 
-<form id="form3" action="searchFunctionality_input.php" method="get">
+<form id="form3" action="searchFunctionality_input.php" method="post">
+<input type="hidden" name="user_id" value="' . $user_id . '"/>
 	<input type="submit" value="Back"/>
 </form>
 

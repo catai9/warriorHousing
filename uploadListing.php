@@ -3,6 +3,7 @@
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/formFormat.css">
 </head>
 
 <body>
@@ -11,51 +12,49 @@
     echo '
     
     <h1>Warrior Housing</h1>
-    <h2>Upload Listing Page</h2>
+    <a href="login.php" class="button">Log Out</a>
     
     <div>
-
+        <h2>Upload Listing</h2>
         <!-- Directs to the uploadListingIntoDatabase.php if the form is completely filled out.
          Uses post as it is more secure than get -->
         <form action="uploadListingIntoDatabase.php" method="post">
 
-            Country:
+            <p>Country:</p>
             <input type="text" name="country" required/><br>
-            City:
+            <p>City:</p>
             <input type="text" name="city" required/><br>
-            Street Name:
+            <p>Street Name:</p>
             <input type="text" name="streetName" required/><br>
-            House Number:
+            <p>House Number:</p>
             <input type="number" name="houseNo" required/><br>
-            Number of Vacancies:
+            <p>Number of Vacancies:</p>
             <input type="number" name="vacancies" required/><br>
-            Rent Per Person:
+            <p>Rent Per Person:</p>
             <input type="number" name="price" required/><br>
-            Availability Length (in months):
+            <p>Availability Length (in months):</p>
             <input type="number" name="availabilityLength" required/><br>
-            Parking Provided:
-            <input type="checkbox" name="parking"/><br>
-            A/C Provided:
-            <input type="checkbox" name="ac"/><br>
-            Washer/Dryer Provided:
-            <input type="checkbox" name="washer"/><br>
-            Furnished:
-            <input type="checkbox" name="furnished"/><br>
-            WiFi:
-            <input type="checkbox" name="wifi"/><br>
-            Electricity:
-            <input type="checkbox" name="electricity"/><br>
-            Water:
-            <input type="checkbox" name="water"/><br>
+            <p>Parking Provided:</p>
+            <input type="checkbox" name="parking"/>
+            <p>A/C Provided:</p>
+            <input type="checkbox" name="ac"/>
+            <p>Washer/Dryer Provided:</p>
+            <input type="checkbox" name="washer"/>
+            <p>Furnished:</p>
+            <input type="checkbox" name="furnished"/>
+            <p>WiFi:</p>
+            <input type="checkbox" name="wifi"/>
+            <p>Electricity:</p>
+            <input type="checkbox" name="electricity"/>
+            <p>Water:</p>
+            <input type="checkbox" name="water"/>
             <input type="hidden" name="rentalType" value="Internal"/>';
             
             echo            
-            '<input type="hidden" name="userId" value="'. $userId . '"/>
+            '<input type="hidden" name="userId" value="'. $userId . '"/> <br><br>
 
             <input type="submit" name="submit" class="teal" value="Upload"/>
         </form>
-        <br><a href="login.php" class="button">Log Out</a></br>
-
     </div>';
     ?>
 
