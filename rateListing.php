@@ -7,14 +7,7 @@
 
 <body>
 	<h1>Warrior Housing</h1>
-	<!-- TO DO: CHANGE PAGE SUBTITLE -->
 	<h2>Rate Listing Page</h2>
-
-<!-- TO DO: CHANGE REDIRECT PAGE-->
-	<!-- Which page it will direct go upon submitting the form. -->
-	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	
-
 
 		<?php
 			// Enable error logging: 
@@ -25,9 +18,6 @@
 
         // must grab variables coming in and use them in the below sql query 
 
-// TO DO: CHANGE SQL STATEMENT
-			// SQL statement (change to reflect what you need).
-			// Will probably be the main change (and hardest change) that you do.
 			$sql = "SELECT rental_listing.House_Number, rental_listing.Street_Name, rental_listing.City, rental_listing.Rent_Per_Person 
             FROM rental_listing WHERE rental_listing_ID = ?";
 				
@@ -48,14 +38,12 @@
                 // Prepared statement, stage 2: execute
                 $stmt->execute();
 
-// TO DO: BIND NEEDED RESULT VARIABLES.
 			// Bind result variables 
 			// In this example, aircraft_id and aircraft_name will be returned from the SQL statement.
 			// Thus, the returned values will be stored in variables named aircraft_id and aircraft_name.
 			$stmt->bind_result($House_Number, $Street_Name, $City, $Rent_Per_Person); 
 
-        // TO DO: CHANGE FORM OUTLINE.
-                    /* fetch values */ 
+        /* fetch values */ 
         echo '<table>';
             echo '<tr>';
                 echo '<th>Address</th>';
@@ -77,9 +65,9 @@
            <!--add intake functionality for the ratingand comment -->
 		<br>
             Please Enter Rating: (1 is lowest, 5 is highest)<br>
-            <input type="text" name="rating_score"/>	<br>
+            <input type="text" name="rating_score" required/>	<br>
             Please Enter Comments:<br>
-            <input type="text" name="rating_comment"/>	<br>
+            <input type="text" name="rating_comment" required/>	<br>
 			<!-- The button for this form. -->
             <input type="hidden" name="user_id" value="' . $user_id . '"/>
             <input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>
