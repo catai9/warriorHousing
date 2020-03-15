@@ -2,21 +2,18 @@
 
 <head>
   <title>Warrior Housing</title>
-  <link rel="stylesheet" href="styles/formFormat.css">
+  <link rel="stylesheet" href="styles/listing.css">
 </head>
 
 <body>
-	<h1>Warrior Housing</h1>	
-	<h2>Listing Details</h2>
-
 	<?php
+
 		// Enable error logging: 
 		error_reporting(E_ALL ^ E_NOTICE);
 		// mysqli connection via user-defined function
 
 		include('./my_connect.php');
 		$mysqli = get_mysqli_conn();
-
 	
 		// SQL statement
 		$sql = "SELECT r.rental_listing_ID, r.Country, r.City, r.Street_name, r.House_number, 
@@ -43,42 +40,56 @@
 		// Bind result variables 
 		$stmt->bind_result($rental_listing_ID, $Country, $City, $Street_name, $House_number, $Vacancies, $Rent_per_person, $Availability_length, $Parking, $A_C, $Washer_Dryer, $Furnished, $Electricity, $Water);
 
-			// fix table to be right number of columns 
+		// fix table to be right number of columns 
 		//printing output in html table
 		
-		echo '<table>';
-			echo '<tr>';
-				echo '<th>Rental Listing ID</th>';
-				echo '<th>Adress</th>';
-				echo '<th>Vacancies</th>';
-				echo '<th>Rent Per Person</th>';
-				echo '<th>1</th>';
-				echo '<th>2</th>';
-				echo '<th>3</th>';
-				echo '<th>4</th>';
-				echo '<th>5</th>';
-				echo '<th>6</th>';
-				echo '<th>7</th>';
-				echo '<th>8</th>';
-				echo '<th>9</th>';
-				echo '<th>10</th>';
-			echo '</tr>';
+		echo '<form action="buyerHome.php" method="post">
+			<input type="hidden" name="user_id" value="' . $user_id . '"/>
+			<input type="submit" class="link" value="Return to Home"/>
+		</form>';
 
-			while ($stmt->fetch()) {
-			echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $City . '</td><td>' . $Street_name .'</td><td>' . $House_number . '</td><td>'.$Country. '</td><td>'. $Vacancies . '</td><td>'. $Rent_per_person . '</td><td>'. $Availability_length. '</td><td>'. $Parking . '</td><td>'. $A_C . '</td><td>'. $Washer_Dryer . '</td><td>'. $Furnished . '</td><td>'. $Electricity .'</td><td>'. $Water . '</td><tr>';
-			}
-		echo '</table>';
-
-				
-		echo '<form action="rateListing.php" method="post"';
-		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-		echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>';
-			echo '<br>';
-				echo '<!-- The button for rate -->';
-				echo '<input type="submit" value="Rate this Listing"/>';
-			echo '</br>';
-		echo '</form>';
+		echo '<h1>Warrior Housing</h1>';
 		
+		// It will only return one result as sql query searches by key.
+		if ($stmt->fetch()) {
+			echo '<div>';
+			echo '<h2 align="left">'. $House_number . ' ' . $Street_name . ' (' . $rental_listing_ID .') </h2>';
+			echo '<h3 align="left">' . $City . ', ' . $Country.'</h3>';
+			echo '<h4 align="left">$' . $Rent_per_person . ' Per Person</h4>';
+			echo '<p class="header">Additional Details</p>';
+			echo '<table style="width:20%">';
+			echo '<tr><td>Number of Vacancies: </td><td>' . $Vacancies;
+			echo '</td></tr><tr><td> Availability Length: </td><td>' . $Availability_length;
+			echo '</td></tr><tr><td> Parking Available: </td><td>';
+			echo $Parking == 'n' ? "No": "Yes";
+			echo '</td></tr><tr><td> A/C Available: </td><td>';
+			echo $A_C == 'n' ? "No" : "Yes";
+			echo '</td></tr><tr><td> Washer/Dryer Available: </td><td>';
+			echo $Washer_Dryer == 'n' ? "No" : "Yes";
+			echo '</td></tr><tr><td> Furnished Available: </td><td>';
+			echo $Furnished == 'n' ? "No" : "Yes";
+			echo '</td></tr><tr><td> Electricity Available: </td><td>';
+			echo $Electricity == 'n' ? "No" : "Yes";
+			echo '</td></tr><tr><td> Water Available: </td><td>';
+			echo $Water == 'n' ? "No" : "Yes";
+			echo '</td></tr></table>';
+			echo '<form action="rateListing.php" method="post"';
+			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+			echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>';
+				echo '<br>';
+					echo '<!-- The button for rate -->';
+					echo '<input type="submit" class="purple" value="Rate this Listing"/>';
+			echo '</form>';
+			echo '</div>';
+		}
+		// If there is an issue while fetching, outputs message.
+		else {
+			echo '<div>An error occurred. The server may have disconnected. Please try again.</div>';
+			echo '<form action="buyerHome.php" method="post">
+				<input type="hidden" name="user_id" value="' . $user_id . '"/>
+				<input type="submit" class="purple" value="Try Again"/>
+			</form>';
+		}
 
 		/* close statement and connection*/ 
 		$stmt->close(); 

@@ -1,0 +1,53 @@
+/* Style formatting to enhance the appearance of the user interfaces.
+   Used separate CSS files as there is similarity in the file formatting.*/
+
+h1 {
+    font-family: sans-serif;
+    font-size: 70px;
+    text-align: center;
+}
+
+input[type=submit] {
+  /*By default, makes all the buttons pink. Else, colour-codes them to their respective option colours on the Home page.*/
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.link{
+    color: purple;
+    background-color: white;
+    text-decoration: underline;
+}
+
+/* Colour code for Login Functionality. */
+.purple{
+    background-color: purple;
+    color: white;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px 50px 50px 50px;
+  font-size: 20px;
+  text-align: left;
+}
+
+p.header {
+    text-decoration: underline;
+}
+a {
+    font-size: 20px;   
+}
+
+a.button {
+    float: right;
+}
+p {
+    text-align: left;
+    margin-bottom: 0;
+}
