@@ -84,7 +84,7 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 				echo '</tr>';
 
 				while ($stmt->fetch()) {
-				echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' . $house_number . ','.$country. '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>'. $parking . '</td><td>'. $a_c . '</td><td>'. $washer_dryer . '</td><td>'. $furnished . '</td><td>'. $electricity .'</td><td>'. $water . '</td><tr>';
+				echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . '</td><td>' . $street_name .'</td><td>' . $house_number . '</td><td>'.$country. '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>'. $parking . '</td><td>'. $a_c . '</td><td>'. $washer_dryer . '</td><td>'. $furnished . '</td><td>'. $electricity .'</td><td>'. $water . '</td><tr>';
 				}
 			echo '</table>';
 
