@@ -36,7 +36,7 @@
             $stmt = $mysqli->prepare($sql);
             
             // (2) Updated tag is the name of the playlist that the song is being transferred to
-            //$User_ID =  $_GET["User_ID"]; 
+            //$User_ID =  $_GET["user_id"]; 
             $User_ID = 10000;
             //$Rental_Listing_ID =  $_GET['rental_listing_ID']; // not actually sure what my parameters are 
             
