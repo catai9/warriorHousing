@@ -28,11 +28,11 @@
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
             </select> 
-            <br>
+            <br><br>
             <input type="submit" name="submit" class="pink" value="Register"/> <br>
         </form>
         Already have an account?
-        <br><a href="login.php" class="button">Log in</a>
+        <br><a href="login.php">Log in</a>
     </div>
 </body>
 

@@ -72,7 +72,10 @@ div {
   text-align: center;
 }
 a {
-    font-size: 20px;
+    font-size: 20px;   
+}
+
+a.button {
     float: right;
 }
 p {

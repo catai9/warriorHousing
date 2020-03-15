@@ -23,7 +23,7 @@
             <input type="submit" name="submit" class="teal" value="Log in"/> <br>
         </form>
         Need an Account? <br>
-        <a href="index.php" class="button">Register</a>
+        <a href="index.php">Register</a>
     </div>
 
 </body>
