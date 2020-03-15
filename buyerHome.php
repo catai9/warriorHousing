@@ -1,10 +1,11 @@
 <!-- Buyer Home Page -->
 
 <head>
-  <title>buyerHome</title>
+  <title>Warrior Housing</title>
 </head>
 <body>
-	<h1>Warrior Housing</h1>
+	<a href="login.php" class="button">Log Out</a>
+    <h1>Warrior Housing</h1>
 	
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- If the form submission is successful, it will redirect to its respective php file -->

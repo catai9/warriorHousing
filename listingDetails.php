@@ -1,12 +1,13 @@
 <!-- listing Details -->
 
 <head>
-  <title>Listing Details</title>
+  <title>Warrior Housing</title>
   <link rel="stylesheet" href="styles/formFormat.css">
 </head>
 
 <body>
 	<h1>Warrior Housing</h1>	
+	<h2>Listing Details</h2>
 
 	<?php
 		// Enable error logging: 
