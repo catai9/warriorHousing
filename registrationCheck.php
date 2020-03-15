@@ -8,7 +8,7 @@
 
 <body>
     <h1>Warrior Housing</h1>
-	<h2>Registration Confirmation</h2>
+	<h2>Registration Status</h2>
 
     <?php
         // Enable error logging: 

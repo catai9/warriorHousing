@@ -21,7 +21,7 @@
         $category = $_POST['category'];
         
         echo '<div>
-            <form action="signUpComplete.php" method="post">';
+            <form action="registrationCheck.php" method="post">';
         
         // If statement executes successfully, then prints a success message to the user.
         echo '<input type="hidden" name="name" value="' . $name . '"/>'; 
