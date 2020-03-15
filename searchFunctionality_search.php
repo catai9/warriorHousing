@@ -48,7 +48,7 @@ $stmt->close();
 $mysqli->close();
 ?>
 
-<form id="form3" action="searchFunctionality_2_input.php" method="get">
+<form id="form3" action="searchFunctionality_input.php" method="get">
 	<input type="submit" value="Back"/>
 </form>
 

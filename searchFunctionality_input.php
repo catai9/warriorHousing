@@ -13,7 +13,7 @@
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form id="form11" action="searchFunctionality_2_search.php" method="get">		
+	<form id="form11" action="searchFunctionality_search.php" method="get">		
 	<br>
             Search by Street Name<br>
             <input type="text" name="search"/>	<br>
