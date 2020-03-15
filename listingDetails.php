@@ -90,7 +90,7 @@
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 				echo '<br>';
 					echo '<!-- The button for rate -->';
-					echo '<input type="submit" value="Further Details"/>';
+					echo '<input type="submit" value="Rate this Listing"/>';
 				echo '</br>';
 			echo '</form>';
 			
