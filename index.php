@@ -17,11 +17,11 @@
         <form action="registerSpecificCategory.php" method="post">
             <!-- Stores the user inputs into variables to be fetched in another file. -->
             <p> Name: </p>    
-            <input type="text" name="name" placeholder="Please enter your name." required/>
+            <input type="text" name="name" required/>
             <p>Email: </p>  
-            <input type="email" name="email" placeholder="Please enter your email." required/>
+            <input type="email" name="email" required/>
             <p>Password: </p>   
-            <input type="password" name="password" placeholder="Please enter your password." required/>
+            <input type="password" name="password" required/>
             <p>Category: </p>
             <select id="category" name="category" required>
                 <option value="buyer">Buyer</option>
