@@ -56,11 +56,7 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 			$stmt->execute();
 
 			// Bind result variables 
-			$stmt->bind_result(
-				$rental_listing_ID, $country, $city, $street_name, $house_number, 
-			$vacancies, 
-			$rent_per_person, $availability_length, $parking, $a_c, $washer_dryer, $furnished, 
-			$electricity, $water) 
+			$stmt->bind_result($rental_listing_ID, $country, $city, $street_name, $house_number, $vacancies, $rent_per_person, $availability_length, $parking, $a_c, $washer_dryer, $furnished, $electricity, $water) 
 
 				// fix table to be right number of columns 
 			//printing output in html table
@@ -71,16 +67,16 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 					echo '<th>Adress</th>';
 					echo '<th>Vacancies</th>';
 					echo '<th>Rent Per Person</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
-					echo '<th>Length of Availability</th>';
+					echo '<th>1</th>';
+					echo '<th>2</th>';
+					echo '<th>3</th>';
+					echo '<th>4</th>';
+					echo '<th>5</th>';
+					echo '<th>6</th>';
+					echo '<th>7</th>';
+					echo '<th>8</th>';
+					echo '<th>9</th>';
+					echo '<th>10</th>';
 				echo '</tr>';
 
 				while ($stmt->fetch()) {
@@ -91,10 +87,10 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 
 			echo '<form action="rateListing.php" method="post"';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-			echo '<br>';
-				echo '<!-- The button for rate -->';
-				echo '<input type="submit" value="Further Details"/>';
-			echo '</br>';
+				echo '<br>';
+					echo '<!-- The button for rate -->';
+					echo '<input type="submit" value="Further Details"/>';
+				echo '</br>';
 			echo '</form>';
 			
 			/* close statement and connection*/ 
