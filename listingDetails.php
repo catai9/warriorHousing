@@ -6,6 +6,7 @@
 </head>
 <?php
 $user_id = $_POST["user_id"]; 
+$rental_listing_ID = $_POST["rental_listing_ID"]; 
 ?>
 <body>
 	<h1>Warrior Housing</h1>
@@ -34,29 +35,34 @@ $user_id = $_POST["user_id"];
 
 		
 			// SQL statement
-			$sql = "SELECT r.rental_listing_ID, r.city, r.street_name, r.house_number, r.vacancies, r.rent_per_person, r.availability_length
+			$sql = "SELECT r.rental_listing_ID, r.country, r.city, r.street_name, r.house_number, 
+			r.vacancies, 
+			r.rent_per_person, r.availability_length, r.parking, r.a_c, r.washer_dryer, r.furnished, 
+			r.electricity, r.water
             FROM rental_listing r
-			WHERE rentail_listing_ID = ?";
-			
-			
+			WHERE rental_listing_ID = ?";
+						
 			$stmt = $mysqli->prepare($sql);	
 
-
-			$Rental_Listing_ID =  $_POST['rental_listing_ID']; // not actually sure what my parameters are 
+			$rental_listing_ID =  $_POST['rental_listing_ID']; // not actually sure what my parameters are 
 						
 			//$Rental_Listing_ID = 20001;
-
 			
 			// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-			$stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
-			Country	City	Street_Name	House_Number	Vacancies	Rent_Per_Person	Availability_Length	Parking	A/C	Washer/Dryer	Furnished	WiFi	Electricity	Water	Rental_Type
+			$stmt-> bind_param('i', $rental_listing_ID);//TODO Bind Php variables to MySQL parameters 
+			
 
 			// Prepared statement, stage 2: execute
 			$stmt->execute();
 
 			// Bind result variables 
-			$stmt->bind_result($rental_listing_ID, $Country, $city, $street_name, $house_number, $vacancies, $rent_per_person, $availability_length); 
-		
+			$stmt->bind_result(
+				$rental_listing_ID, $country, $city, $street_name, $house_number, 
+			$vacancies, 
+			$rent_per_person, $availability_length, $parking, $a_c, $washer_dryer, $furnished, 
+			$electricity, $water) 
+			
+				// fix table to be right number of columns 
 			//printing output in html table
 			while ($stmt->fetch()) {
 			echo '<table style="width:100%">';
