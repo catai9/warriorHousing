@@ -48,7 +48,7 @@
 			echo '<table style="width:100%">';
             echo '<tr>';
                 echo '<th>Rental Listing ID</th>';
-                echo '<th>Adress</th>';
+                echo '<th>Address</th>';
                 echo '<th>Vacancies</th>';
                 echo '<th>Rent Per Person</th>';
                 echo '<th>Length of Availability</th>';
