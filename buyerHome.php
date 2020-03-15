@@ -1,6 +1,5 @@
-<!-- TO DO: CHANGE BELOW COMMENTS -->
 <!-- Page 3 -->
-<!-- Page Details - Buyer Home Page -->
+<!-- Buyer Home Page -->
 
 <head>
   <title>buyerHome</title>
@@ -63,29 +62,26 @@
 			$stmt->bind_result($rental_listing_ID, $city, $street_name, $house_number, $vacancies, $rent_per_person, $availability_length); 
 		
 			//printing output in html table
-            echo '<table>';
+			while ($stmt->fetch()) {
+			echo '<table style="width:100%">';
             echo '<tr>';
-                echo '<th>Song ID</th>';
-                echo '<th>Song Name</th>';
-                echo '<th>Song Length</th>';
-                echo '<th>Genre</th>';
-                echo '<th>BPM</th>';
-                echo '<th>Album Name </th>';
-                echo '<th>Artist Name</th>';
+                echo '<th>Rental Listing ID</th>';
+                echo '<th>Adress</th>';
+                echo '<th>Vacancies</th>';
+                echo '<th>Rent Per Person</th>';
+                echo '<th>Length of Availability</th>';
             echo '</tr>';
-            while ($stmt->fetch()) {
-            echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . '</td><td>' . $street_name . '</td><td>'. $house_number . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>';
-            }
-            echo '</table>';
+            echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' . $house_number . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>';
+			echo '</table>';
+			echo '<form action="searchListing.php" method="post"';
+			echo '<br>';
+				echo '<!-- The button for rate -->';
+				echo '<input type="submit" value="Further Details"/>';
+			echo '</br>';
+			echo '</form>';
+			}
 			/* close statement and connection*/ 
 			$stmt->close(); 
 			$mysqli->close();
 		?>
-		
-	<form action="searchListing.php" method="post"
-		<br>
-				<!-- The button for rate -->
-				<input type="submit" value="Rate"/>
-		</br>
-	</form>
 </body>
