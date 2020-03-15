@@ -36,7 +36,7 @@ $user_id = $_POST["user_id"];
 
 <form id="form3" action="buyerHome.php" method="post">
  <input type="hidden" name="user_id" value="' . $user_id . '"/>
-	<input type="submit" value="Back"/>
+	<input type="submit" value="Back To Home"/>
 </form>
 </body>
 

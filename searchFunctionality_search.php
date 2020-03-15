@@ -68,7 +68,7 @@ $mysqli2->close();
 
 <form id="form3" action="searchFunctionality_input.php" method="post">
 <input type="hidden" name="user_id" value="' . $user_id . '"/>
-	<input type="submit" value="Back To Home"/>
+	<input type="submit" value="Back"/>
 </form>
 
 </body>
