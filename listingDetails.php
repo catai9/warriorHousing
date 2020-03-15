@@ -61,7 +61,7 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
 			$vacancies, 
 			$rent_per_person, $availability_length, $parking, $a_c, $washer_dryer, $furnished, 
 			$electricity, $water) 
-			
+
 				// fix table to be right number of columns 
 			//printing output in html table
 			while ($stmt->fetch()) {
@@ -73,7 +73,11 @@ $rental_listing_ID = $_POST["rental_listing_ID"];
                 echo '<th>Rent Per Person</th>';
                 echo '<th>Length of Availability</th>';
             echo '</tr>';
-            echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' . $house_number . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>';
+			echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' 
+			. $house_number . ','.$country. '</td><td>'. $vacancies . '</td><td>'. $rent_per_person 
+			. '</td><td>'. $availability_length. '</td><td>'. $parking . '</td><td>'. $a_c 
+			. '</td><td>'. $washer_dryer . '</td><td>'. $furnished . '</td><td>'. $electricity 
+			.'</td><td>'. $water;
 			echo '</table>';
 			echo '<form action="rateListing.php" method="post"';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
