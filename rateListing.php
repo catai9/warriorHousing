@@ -3,6 +3,7 @@
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/formFormat.css">
 </head>
 
 <body>
