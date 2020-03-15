@@ -13,14 +13,14 @@
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form action="buyerHome.php" method="get">
+	<form action="buyerHome.php" method="post">
 
 	<?php
 			// Enable error logging: 
 			error_reporting(E_ALL ^ E_NOTICE);
 			// mysqli connection via user-defined function
 			include ('./my_connect.php');
-            $mysqli = get_mysqli_conn();
+            $mysqli = POST_mysqli_conn();
 
 
             $sql = "INSERT INTO rating
@@ -31,10 +31,10 @@
             $stmt = $mysqli->prepare($sql);
 
             //these values are inputted by the user
-            $rental_listing_ID =  $_GET["rental_listing_ID"]; //TODO Handle GET parameters
-            $user_id =  $_GET['user_id'];
-            $Score =  $_GET['rating_score'];
-            $Comments =  $_GET['rating_comment'];//TODO Handle GET parameters
+            $rental_listing_ID =  $_POST["rental_listing_ID"]; //TODO Handle POST parameters
+            $user_id =  $_POST['user_id'];
+            $Score =  $_POST['rating_score'];
+            $Comments =  $_POST['rating_comment'];//TODO Handle POST parameters
 
 // TO DO: BIND NEEDED RESULT VARIABLES.
 			// Bind result variables 
