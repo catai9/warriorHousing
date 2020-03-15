@@ -84,7 +84,7 @@ $Rental_Listing_ID = $_POST["rental_listing_ID"];
 				}
 			echo '</table>';
 
-				/*	
+					
 			echo '<form action="rateListing.php" method="post"';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 				echo '<br>';
@@ -92,7 +92,7 @@ $Rental_Listing_ID = $_POST["rental_listing_ID"];
 					echo '<input type="submit" value="Further Details"/>';
 				echo '</br>';
 			echo '</form>';
-			*/
+			
 
 			/* close statement and connection*/ 
 			$stmt->close(); 
