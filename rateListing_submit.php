@@ -31,10 +31,10 @@
             $stmt = $mysqli->prepare($sql);
 
             //these values are inputted by the user
-            $Rental_Listing_ID =  $_POST["Client_ID"]; //TODO Handle GET parameters
-            $User_ID =  $_POST['First_Name'];
-            $Score =  rating_score;
-            $Comments =  $_POST["Email"];//TODO Handle GET parameters
+            $Rental_Listing_ID =  $_GET["Client_ID"]; //TODO Handle GET parameters
+            $User_ID =  $_GET['First_Name'];
+            $Score =  $_GET['rating_score'];
+            $Comments =  $_GET['rating_comment'];//TODO Handle GET parameters
 
 // TO DO: BIND NEEDED RESULT VARIABLES.
 			// Bind result variables 
