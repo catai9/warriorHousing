@@ -1,6 +1,5 @@
-<!-- TO DO: CHANGE BELOW COMMENTS -->
 <!-- Page 3 -->
-<!-- Page Details - Buyer Home Page -->
+<!-- Buyer Home Page -->
 
 <head>
   <title>buyerHome</title>
