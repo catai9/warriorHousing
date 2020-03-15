@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="styles/formFormat.css">
 </head>
 
-
 <body>
     <h1>Warrior Housing</h1>
 	<h2>Registration Continued</h2>

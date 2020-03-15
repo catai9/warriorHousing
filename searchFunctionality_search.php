@@ -6,7 +6,8 @@
 </head>
 
 <body>
-	<h1>Search Street Name</h1>
+	<h1>Warrior Housing</h1>
+	<h2>Search Street Name</h2>
 	
 	<?php
 		$user_id = $_POST["user_id"];

@@ -6,7 +6,6 @@
 </head>
 
 <body>
-    
     <h1>Warrior Housing</h1>
     
     <div>

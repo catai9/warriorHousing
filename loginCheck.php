@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    
+    <h1>Warrior Housing</h1>
     <?php
         // Enable error logging: 
         error_reporting(E_ALL ^ E_NOTICE);

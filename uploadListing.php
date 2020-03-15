@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <h1>Warrior Housing</h1>
     <?php
         $userId = $_POST['user_id']; 
     echo '
