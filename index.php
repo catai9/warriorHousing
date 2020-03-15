@@ -11,7 +11,7 @@
     <h4>Please create two accounts if you are both a buyer and a seller.</h4>
     <p>If you are a student, please sign up with your @uwaterloo email.</p>
 
-    <!-- Directs to the signUpComplete.php when the user presses the Continue button. 
+    <!-- Directs to the registerSpecificCategory.php when the user presses the Continue button. 
     Uses post as it is more secure than get. -->
     <div>
         <form action="registerSpecificCategory.php" method="post">

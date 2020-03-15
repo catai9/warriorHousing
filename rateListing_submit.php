@@ -31,10 +31,10 @@
             $stmt = $mysqli->prepare($sql);
 
             //these values are inputted by the user
-            $Rental_Listing_ID =  $_POST["Client_ID"]; //TODO Handle GET parameters
-            $User_ID =  $_POST['First_Name'];
-            $Score =  rating_score;
-            $Comments =  $_POST["Email"];//TODO Handle GET parameters
+            $Rental_Listing_ID =  $_GET["Rental_Listing_ID"]; //TODO Handle GET parameters
+            $User_ID =  $_GET['User_ID'];
+            $Score =  $_GET['rating_score'];
+            $Comments =  $_GET['rating_comment'];//TODO Handle GET parameters
 
 // TO DO: BIND NEEDED RESULT VARIABLES.
 			// Bind result variables 
@@ -42,7 +42,7 @@
 			// Thus, the returned values will be stored in variables named aircraft_id and aircraft_name.
 
 // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt-> bind_param('ssss', $Client_ID, $First_Name, $Last_Name, $Email);//TODO Bind Php variables to MySQL parameters 
+$stmt-> bind_param('ssss', $Rental_Listing_ID, $User_ID, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
 
 
 // $stmt->execute() function returns boolean indicating success 
@@ -50,27 +50,22 @@ $stmt-> bind_param('ssss', $Client_ID, $First_Name, $Last_Name, $Email);//TODO B
 if ($stmt->execute()) 
 { 
 echo '<h1>Success!</h1>'; 
-echo '<p>A new user was created with Username: ' . $Client_ID . ', name ' . $First_Name . ' '. $Last_Name . ' and email '. $Email. '</p>';
-echo '<p>Please return to the home page and login using your username : '. $Client_ID .'</p>'; 
+echo '<p>A new rating was created by User: ' . $Client_ID . ', for rental listing ' . $Rental_Listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
 
-echo '<form id="form22" action="index.php" method="get">';
-echo '<input type="submit" value="Home page"/>'; 
+echo '<form id="form22" action="buyerHome.php" method="get">';
+echo '<input type="submit" value="Return to buyer home page"/>'; 
 echo '</form>';	
+
 } 
 else 
 {
 echo '<h1>You Failed</h1>'; 
-echo '<p>A new user was not created with Username: ' . $Client_ID . ', name ' . $First_Name . ' '. $Last_Name . ' and email '. $Email. '</p>';
+echo '<p>A new rating was not created by User: ' . $Client_ID . ', for rental listing ' . $Rental_Listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
 echo 'Execute failed: (' . $stmt->errno . ') ' . $stmt->error; 
 } 
 $stmt->close(); 
 $mysqli->close();
 ?>
-
-		<br>
-			<!-- The button for this form. -->
-			<input type="submit" value="Continue"/>
-		</br>
 	</form>
 </body>
 

@@ -5,10 +5,7 @@
   <title>buyerHome</title>
 </head>
 <?php
-
-// $User_ID = $_Get["User_ID"]; -->
-//<a herf="searchListing.php?user=><?php echo $User_ID; ?>">
-$User_ID = 10000
+$User_ID = $_Get["User_ID"]; 
 ?>
 <body>
 	<h1>Warrior Housing</h1>
@@ -16,13 +13,15 @@ $User_ID = 10000
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
-	<form action="searchListing.php" method="get" 
-		$User_ID
-		<br>
+	<?php
+	echo '<form action="searchListing.php" method="post" ';
+		echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+		echo '<br>
 			<!-- The button for search -->
 			<input type="submit" value="Search"/>
 		</br>
-	</form>
+	</form>';
+	?>
 	<form action="filterListing.php" method="post"
 		$User_ID
 		<br>
