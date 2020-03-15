@@ -12,7 +12,7 @@
 	<!-- If the form submission is successful, it will redirect to its respective php file -->
 	<?php
 		$user_id = $_POST["user_id"];
-		echo '<form action="searchFunctionality_input.php" method="post" ';
+		echo '<form action="searchFunctionality_input.php" method="post"> ';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 			echo '<br>
 				<!-- The button for search -->
@@ -55,7 +55,7 @@
             echo '</tr>';
             echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $city . ', ' . $street_name .', ' . $house_number . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td><td>';
 			echo '</table>';
-			echo '<form action="listingDetails.php" method="post"';
+			echo '<form action="listingDetails.php" method="post">';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 			echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>'; 
 			echo '<br>';
