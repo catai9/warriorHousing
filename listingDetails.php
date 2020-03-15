@@ -56,7 +56,7 @@ $Rental_Listing_ID = $_POST["rental_listing_ID"];
 			$stmt->execute();
 
 			// Bind result variables 
-			$stmt->bind_result($Rental_Listing_ID, $Country, $City, $Street_name, $House_number, $Vacancies, $Rent_per_person, $Availability_length, $Parking, $A_C, $Washer_Dryer, $Furnished, $Electricity, $Water) 
+			$stmt->bind_result($Rental_Listing_ID, $Country, $City, $Street_name, $House_number, $Vacancies, $Rent_per_person, $Availability_length, $Parking, $A_C, $Washer_Dryer, $Furnished, $Electricity, $Water);
 
 				// fix table to be right number of columns 
 			//printing output in html table
