@@ -34,7 +34,8 @@ $user_id = $_POST["user_id"];
 
 		
 			// SQL statement
-			$sql = "SELECT r.rental_listing_ID, r.city, r.street_name, r.house_number, r.vacancies, r.rent_per_person, r.availability_length
+			$sql = "SELECT r.rental_listing_ID, r.country, r.city, r.street_name, r.house_number, r.vacancies, 
+			r.rent_per_person, r.availability_length, r.parking, r.a_c, r.washer_dryer, r.furnished, r.electricity, r.water
             FROM rental_listing r
 			WHERE rentail_listing_ID = ?";
 			
@@ -49,7 +50,7 @@ $user_id = $_POST["user_id"];
 			
 			// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
 			$stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
-			Country	City	Street_Name	House_Number	Vacancies	Rent_Per_Person	Availability_Length	Parking	A/C	Washer/Dryer	Furnished	WiFi	Electricity	Water	Rental_Type
+			Parking	A/C	Washer/Dryer	Furnished	WiFi	Electricity	Water	Rental_Type
 
 			// Prepared statement, stage 2: execute
 			$stmt->execute();
