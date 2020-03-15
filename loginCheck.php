@@ -51,15 +51,19 @@
                 $stmt2->execute();
                 // If the user is in buyer table. 
                 if ($stmt2->fetch()) {
+                    echo '<form action="buyerHome" method="post">';
                     echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+                    echo '</form>';
                     echo '<p>Successful Login</p>';
-                    echo '<br><a href="buyerHome.php" class="button">Proceed</a></br>';
+                    echo '<input type="submit" name="submit" class="teal" value="Proceed"/>';
                 }
                 // Else, user is a seller. Redirect to seller page.
                 else {
+                    echo '<form action="uploadListing" method="post">';
                     echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
                     echo '<p>Successful Login</p>';
-                    echo '<br><a href="uploadListing.php" class="button">Proceed</a></br>';
+                    echo '<input type="submit" name="submit" class="teal" value="Proceed"/>';
+                    echo '</form>';
                 }
                 $stmt2->close();
             } else {
