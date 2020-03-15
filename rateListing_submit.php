@@ -42,7 +42,7 @@
 			// Thus, the returned values will be stored in variables named aircraft_id and aircraft_name.
 
 // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt-> bind_param('ssss', $rental_listing_ID, $user_id, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
+$stmt-> bind_param('iiis', $rental_listing_ID, $user_id, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
 
 
 // $stmt->execute() function returns boolean indicating success 
@@ -52,7 +52,7 @@ if ($stmt->execute())
 echo '<h1>Success!</h1>'; 
 echo '<p>A new rating was created by User: ' . $user_id . ', for rental listing ' . $rental_listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
 
-echo '<form id="form22" action="buyerHome.php" method="get">';
+echo '<form id="form22" action="buyerHome.php" method="post">';
 echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 
 echo '<input type="submit" value="Return to buyer home page"/>'; 
