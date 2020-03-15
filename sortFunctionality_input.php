@@ -13,18 +13,12 @@
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form id="form11" action="searchFunctionality_search.php" method="get">		
+	<form id="form11" action="sortFunctionality_search.php" method="get">		
 	<br>
-            Search by Street Name<br>
-            <input type="text" name="search"/>	<br>
+            Sort by City Name<br>
+            <input type="text" name="sort"/>	<br>
 			<!-- The button for this form. -->
-			<input type="submit" value="Submit search"/>
-		</br>
-		<br>
-            Search by City<br>
-            <input type="text" name="city"/>	<br>
-			<!-- The button for this form. -->
-			<input type="submit" value="Enter city"/>
+			<input type="submit" value="Submit sort"/>
 		</br>
 	</form>
 </body>

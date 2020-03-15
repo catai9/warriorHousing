@@ -9,9 +9,6 @@ include('./my_connect.php');
 $mysqli = get_mysqli_conn();
 
 // SQL statement
-$sql = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
-            FROM Rental_Listing r
-			WHERE r.Street_Name =?";
 $sql2 = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
             FROM Rental_Listing r
 			WHERE r.City =?";
@@ -22,7 +19,6 @@ $stmt = $mysqli->prepare($sql2);
 
 // Prepared statement, stage 2: bind and execute 
 
-$query = $_GET['search']; 
 $query = $_GET['city']; 
 
 
@@ -57,5 +53,4 @@ $mysqli->close();
 <form id="form3" action="searchFunctionality_input.php" method="get">
 	<input type="submit" value="Back"/>
 </form>
-
 </body>
