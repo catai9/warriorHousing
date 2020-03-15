@@ -53,6 +53,8 @@ echo '<h1>Success!</h1>';
 echo '<p>A new rating was created by User: ' . $Client_ID . ', for rental listing ' . $Rental_Listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
 
 echo '<form id="form22" action="buyerHome.php" method="get">';
+echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+
 echo '<input type="submit" value="Return to buyer home page"/>'; 
 echo '</form>';	
 

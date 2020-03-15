@@ -35,29 +35,29 @@
 
 		
 			// SQL statement
-			$sql = "SELECT r.Rental_Listing_ID, r.Country, r.City, r.Street_name, r.House_number, 
+			$sql = "SELECT r.rental_listing_ID, r.Country, r.City, r.Street_name, r.House_number, 
 			r.Vacancies, 
 			r.Rent_per_person, r.Availability_length, r.Parking, r.A_C, r.Washer_Dryer, r.Furnished, 
 			r.Electricity, r.Water
             FROM rental_listing r
-			WHERE Rental_Listing_ID = ?";
+			WHERE rental_listing_ID = ?";
 						
 			$stmt = $mysqli->prepare($sql);	
 
 			$user_id = $_POST["user_id"]; 
-			$Rental_Listing_ID =  $_POST['rental_listing_ID']; // not actually sure what my parameters are 
+			$rental_listing_ID =  $_POST['rental_listing_ID']; // not actually sure what my parameters are 
 						
-			//$Rental_Listing_ID = 20001;
+			//$rental_listing_ID = 20001;
 			
 			// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-			$stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
+			$stmt-> bind_param('i', $rental_listing_ID);//TODO Bind Php variables to MySQL parameters 
 			
 
 			// Prepared statement, stage 2: execute
 			$stmt->execute();
 
 			// Bind result variables 
-			$stmt->bind_result($Rental_Listing_ID, $Country, $City, $Street_name, $House_number, $Vacancies, $Rent_per_person, $Availability_length, $Parking, $A_C, $Washer_Dryer, $Furnished, $Electricity, $Water);
+			$stmt->bind_result($rental_listing_ID, $Country, $City, $Street_name, $House_number, $Vacancies, $Rent_per_person, $Availability_length, $Parking, $A_C, $Washer_Dryer, $Furnished, $Electricity, $Water);
 
 				// fix table to be right number of columns 
 			//printing output in html table
@@ -81,13 +81,14 @@
 				echo '</tr>';
 
 				while ($stmt->fetch()) {
-				echo '<tr><td>' . $Rental_Listing_ID . '</td><td>' . $City . '</td><td>' . $Street_name .'</td><td>' . $House_number . '</td><td>'.$Country. '</td><td>'. $Vacancies . '</td><td>'. $Rent_per_person . '</td><td>'. $Availability_length. '</td><td>'. $Parking . '</td><td>'. $A_C . '</td><td>'. $Washer_Dryer . '</td><td>'. $Furnished . '</td><td>'. $Electricity .'</td><td>'. $Water . '</td><tr>';
+				echo '<tr><td>' . $rental_listing_ID . '</td><td>' . $City . '</td><td>' . $Street_name .'</td><td>' . $House_number . '</td><td>'.$Country. '</td><td>'. $Vacancies . '</td><td>'. $Rent_per_person . '</td><td>'. $Availability_length. '</td><td>'. $Parking . '</td><td>'. $A_C . '</td><td>'. $Washer_Dryer . '</td><td>'. $Furnished . '</td><td>'. $Electricity .'</td><td>'. $Water . '</td><tr>';
 				}
 			echo '</table>';
 
 					
 			echo '<form action="rateListing.php" method="post"';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+			echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>';
 				echo '<br>';
 					echo '<!-- The button for rate -->';
 					echo '<input type="submit" value="Rate this Listing"/>';

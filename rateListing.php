@@ -13,7 +13,8 @@
 <!-- TO DO: CHANGE REDIRECT PAGE-->
 	<!-- Which page it will direct go upon submitting the form. -->
 	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form action="rateListing_submit.php" method="get">
+	
+
 
 		<?php
 			// Enable error logging: 
@@ -21,30 +22,28 @@
 			// mysqli connection via user-defined function
 			include ('./my_connect.php');
 			$mysqli = get_mysqli_conn();
-		?>
 
-		<?php
         // must grab variables coming in and use them in the below sql query 
 
 // TO DO: CHANGE SQL STATEMENT
 			// SQL statement (change to reflect what you need).
 			// Will probably be the main change (and hardest change) that you do.
 			$sql = "SELECT rental_listing.House_Number, rental_listing.Street_Name, rental_listing.City, rental_listing.Rent_Per_Person 
-            FROM rental_listing WHERE Rental_Listing_ID = ?";
+            FROM rental_listing WHERE rental_listing_ID = ?";
 				
 			// Prepared statement, stage 1: prepare
             $stmt = $mysqli->prepare($sql);
             
             // (2) Updated tag is the name of the playlist that the song is being transferred to
-            $User_ID =  $_GET["user_id"]; 
+            $user_id =  $_POST["user_id"]; 
             //User_ID = 10000;
-            $Rental_Listing_ID =  $_GET['rental_listing_ID']; // not actually sure what my parameters are 
-            
-            //$Rental_Listing_ID = 20001;
+            $rental_listing_ID =  $_POST['rental_listing_ID']; // not actually sure what my parameters are 
+
+            //$rental_listing_ID = 20001;
             // how does user id get to the right place? 
 
             // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-            $stmt-> bind_param('i', $Rental_Listing_ID);//TODO Bind Php variables to MySQL parameters 
+            $stmt-> bind_param('i', $rental_listing_ID);//TODO Bind Php variables to MySQL parameters 
             //what does this do? it binds the php to SQL vars
                 // Prepared statement, stage 2: execute
                 $stmt->execute();
@@ -74,7 +73,7 @@
 			$stmt->close(); 
             $mysqli->close();
 		?>
-
+            <form action="rateListing_submit.php" method="get">
            <!--add intake functionality for the ratingand comment -->
 		<br>
             Please Enter Rating: (1 is lowest, 5 is highest)<br>
@@ -82,6 +81,8 @@
             Please Enter Comments:<br>
             <input type="text" name="rating_comment"/>	<br>
 			<!-- The button for this form. -->
+            echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+            echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>';
 			<input type="submit" value="Submit Rating"/>
 		</br>
 	</form>
