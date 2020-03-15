@@ -31,8 +31,8 @@
             $stmt = $mysqli->prepare($sql);
 
             //these values are inputted by the user
-            $Rental_Listing_ID =  $_GET["Rental_Listing_ID"]; //TODO Handle GET parameters
-            $User_ID =  $_GET['User_ID'];
+            $rental_listing_ID =  $_GET["rental_listing_ID"]; //TODO Handle GET parameters
+            $user_id =  $_GET['user_id'];
             $Score =  $_GET['rating_score'];
             $Comments =  $_GET['rating_comment'];//TODO Handle GET parameters
 
@@ -42,7 +42,7 @@
 			// Thus, the returned values will be stored in variables named aircraft_id and aircraft_name.
 
 // (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt-> bind_param('ssss', $Rental_Listing_ID, $User_ID, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
+$stmt-> bind_param('ssss', $rental_listing_ID, $user_id, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
 
 
 // $stmt->execute() function returns boolean indicating success 
@@ -50,7 +50,7 @@ $stmt-> bind_param('ssss', $Rental_Listing_ID, $User_ID, $Score, $Comments);//TO
 if ($stmt->execute()) 
 { 
 echo '<h1>Success!</h1>'; 
-echo '<p>A new rating was created by User: ' . $Client_ID . ', for rental listing ' . $Rental_Listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
+echo '<p>A new rating was created by User: ' . $user_id . ', for rental listing ' . $rental_listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
 
 echo '<form id="form22" action="buyerHome.php" method="get">';
 echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
@@ -62,7 +62,7 @@ echo '</form>';
 else 
 {
 echo '<h1>You Failed</h1>'; 
-echo '<p>A new rating was not created by User: ' . $Client_ID . ', for rental listing ' . $Rental_Listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
+echo '<p>A new rating was not created by User: ' . $user_id . ', for rental listing ' . $rental_listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
 echo 'Execute failed: (' . $stmt->errno . ') ' . $stmt->error; 
 } 
 $stmt->close(); 

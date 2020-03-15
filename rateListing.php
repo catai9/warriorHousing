@@ -81,8 +81,8 @@
             Please Enter Comments:<br>
             <input type="text" name="rating_comment"/>	<br>
 			<!-- The button for this form. -->
-            echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-            echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>';
+            <input type="hidden" name="user_id" value="' . $user_id . '"/>
+            <input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>
 			<input type="submit" value="Submit Rating"/>
 		</br>
 	</form>
