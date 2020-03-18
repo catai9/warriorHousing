@@ -15,12 +15,17 @@
 		include('./my_connect.php');
 		$mysqli = get_mysqli_conn();
 	
-		// SQL statement
+		// SQL statement to get listing info.
 		$sql = "SELECT r.rental_listing_ID, r.Country, r.City, r.Street_name, r.House_number, 
 		r.Vacancies, 
 		r.Rent_per_person, r.Availability_length, r.Parking, r.A_C, r.Washer_Dryer, r.Furnished, 
 		r.Electricity, r.Water
 		FROM rental_listing r
+		WHERE rental_listing_ID = ?";
+
+		// SQL statement to get seller info (name and phone number).
+		$sql2 = "SELECT Name, Phone_Number
+		FROM rental_listing NATURAL JOIN site_user NATURAL JOIN seller
 		WHERE rental_listing_ID = ?";
 					
 		$stmt = $mysqli->prepare($sql);	
@@ -31,8 +36,7 @@
 		//$rental_listing_ID = 20001;
 		
 		// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-		$stmt-> bind_param('i', $rental_listing_ID);//TODO Bind Php variables to MySQL parameters 
-		
+		$stmt-> bind_param('i', $rental_listing_ID);
 
 		// Prepared statement, stage 2: execute
 		$stmt->execute();
@@ -56,7 +60,7 @@
 			echo '<h2 align="left">'. $House_number . ' ' . $Street_name . ' (' . $rental_listing_ID .') </h2>';
 			echo '<h3 align="left">' . $City . ', ' . $Country.'</h3>';
 			echo '<h4 align="left">$' . $Rent_per_person . ' Per Person</h4>';
-			echo '<p class="header">Additional Details</p>';
+			echo '<p class="header">Additional Details</p><br/>';
 			echo '<table style="width:20%">';
 			echo '<tr><td>Number of Vacancies: </td><td>' . $Vacancies;
 			echo '</td></tr><tr><td> Availability Length: </td><td>' . $Availability_length;
@@ -73,10 +77,20 @@
 			echo '</td></tr><tr><td> Water Available: </td><td>';
 			echo $Water == 'n' ? "No" : "Yes";
 			echo '</td></tr></table>';
+
+			$stmt->close(); 
+			$stmt2 = $mysqli->prepare($sql2);	
+			$stmt2-> bind_param('i', $rental_listing_ID);
+			$stmt2->execute();
+			$stmt2->bind_result($Seller_Name, $Seller__PhoneNo);
+			// Only shows the seller information if it exists.
+			if ($stmt2->fetch()) {
+				echo '<p class="header">Seller Information</p>';
+				echo '<h3 align="left">' . $Seller_Name . ': ' . $Seller__PhoneNo . '</h3>';
+			}
 			echo '<form action="rateListing.php" method="post"';
 			echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
 			echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>';
-				echo '<br>';
 					echo '<!-- The button for rate -->';
 					echo '<input type="submit" class="purple" value="Rate this Listing"/>';
 			echo '</form>';
@@ -92,7 +106,6 @@
 		}
 
 		/* close statement and connection*/ 
-		$stmt->close(); 
 		$mysqli->close();
 		?>
 </body>
