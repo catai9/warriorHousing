@@ -1,4 +1,3 @@
-<!-- Page 2.1 -->
 <!-- Login Page  -->
 
 <head>
@@ -7,7 +6,6 @@
 </head>
 
 <body>
-    
     <h1>Warrior Housing</h1>
     
     <div>

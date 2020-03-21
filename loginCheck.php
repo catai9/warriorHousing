@@ -1,12 +1,12 @@
-<!-- Page 2.2 -->
 <!-- Login Page Continued  -->
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/formFormat.css">
 </head>
 
 <body>
-    
+    <h1>Warrior Housing</h1>
     <?php
         // Enable error logging: 
         error_reporting(E_ALL ^ E_NOTICE);
@@ -53,27 +53,27 @@
                 if ($stmt2->fetch()) {
                     echo '<form action="buyerHome.php" method="post">';
                     echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-                    echo '<p>Successful Login</p>';
-                    echo '<input type="submit" name="submit" class="teal" value="Proceed"/>';
+                    echo '<div>Successful Login <br><br>';
+                    echo '<input type="submit" name="submit" class="teal" value="Proceed"/></div>';
                     echo '</form>';
                 }
                 // Else, user is a seller. Redirect to seller page.
                 else {
                     echo '<form action="uploadListing.php" method="post">';
                     echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-                    echo '<p>Successful Login</p>';
-                    echo '<input type="submit" name="submit" class="teal" value="Proceed"/>';
+                    echo '<div>Successful Login <br><br>';
+                    echo '<input type="submit" name="submit" class="teal" value="Proceed"/></div>';
                     echo '</form>';
                 }
                 $stmt2->close();
             } else {
-                echo '<p>Wrong password entered</p>';
-                echo '<br><a href="login.php" class="button">Try again</a></br>';
+                echo '<div>Wrong password entered.<br><br>';
+                echo '<a href="login.php">Try again</a></div>';
             }
         } 
         else {
-            echo 'Invalid user. Please make sure you are registered.'; 
-            echo '<br><a href="login.php" class="button">Go back to Login</a></br>';
+            echo '<div>Invalid user. Please make sure you are registered.<br><br>'; 
+            echo '<a href="login.php">Go back to Login</a></div>';
         }
 
         /* close statement and connection*/   

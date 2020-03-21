@@ -1,42 +1,35 @@
-<!-- Page 9 -->
-<!-- Rate Listing Page -->
+<!-- Search Listing Page -->
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/listing.css">
 </head>
 
-
-<?php
-$user_id = $_POST["user_id"];
-?>
-
 <body>
-	<h1>Warrior Housing</h1>
-	<!-- TO DO: CHANGE PAGE SUBTITLE -->
-	<!-- <h2>Search Functionality </h2> -->
+	<?php
+		$user_id = $_POST["user_id"];
+		echo '<form action="buyerHome.php" method="post">
+        <input type="hidden" name="user_id" value="' . $user_id . '"/>
+        <input type="submit" class="link" value="Return to Home"/>
+		</form>';
 
-<!-- TO DO: CHANGE REDIRECT PAGE-->
-	<!-- Which page it will direct go upon submitting the form. -->
-	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form id="form11" action="searchFunctionality_search.php" method="post">		
-	<input type="hidden" name="user_id" value="' . $user_id . '"/>
-	<br>
-            Search by Street Name<br>
-            <input type="text" name="search"/>	<br>
-			<!-- The button for this form. -->
-			<input type="submit" value="Submit Search"/>
-		</br>
-		<br>
-            Search by City<br>
-            <input type="text" name="city"/>	<br>
-			<!-- The button for this form. -->
-			<input type="submit" value="Submit Search"/>
-		</br>
-	</form>
-
-<form id="form3" action="buyerHome.php" method="post">
- <input type="hidden" name="user_id" value="' . $user_id . '"/>
-	<input type="submit" value="Back To Home"/>
-</form>
+		echo '<h1>Warrior Housing</h1>';
+		echo '
+			<div>
+				<form id="form11" action="searchFunctionality_search.php" method="post">		
+					<input type="hidden" name="user_id" value="' . $user_id . '"/>
+					<br>
+						<p>Keywords:</p>
+						<input type="text" name="search" required/>
+						<p>Search By:</p>
+						<select id="category" name="category" required>
+							<option value="street">Street Name</option>
+							<option value="city">City</option>
+						</select> <br><br>
+						<!-- The button for this form. -->
+						<input type="submit" class="orange" value="Submit Search"/>
+				</form>
+			</div>
+		'
+	?>
 </body>
-

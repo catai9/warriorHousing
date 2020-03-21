@@ -1,4 +1,3 @@
-<!-- Page 1.1 -->
 <!-- Registration Page  -->
 
 <head>
@@ -18,7 +17,7 @@
         <form action="registerSpecificCategory.php" method="post">
             <!-- Stores the user inputs into variables to be fetched in another file. -->
             <p> Name: </p>    
-            <input type="text" name="name" placeholder="name" required/>
+            <input type="text" name="name" required/>
             <p>Email: </p>  
             <input type="email" name="email" required/>
             <p>Password: </p>   

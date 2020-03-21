@@ -1,14 +1,12 @@
-<!-- Page 1.3 -->
 <!-- Registration Confirmation Page  -->
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/formFormat.css">
 </head>
-
 
 <body>
     <h1>Warrior Housing</h1>
-	<h2>Registration Status</h2>
 
     <?php
         // Enable error logging: 
@@ -66,14 +64,16 @@
                     $buyerstmt->bind_param('is', $user_id, $studentID); 
                     if($buyerstmt->execute()){
                         // If statement executes successfully, then prints a success message to the user.
-                        echo '<p>' . $name . ' added successfully!</p>';
-                        echo '<br><center><a href="login.php" class="button">Please Proceed to Login</a></br></center>';
+                        echo '<div>' . $name . ' has been added successfully!<br><br>';
+                        echo '<form action="login.php">';
+                        echo '<input type="submit" name="submit" class="pink" value="Please Proceed to Login"/> </form></div>';
                         // Close statement and connection.
                         $buyerstmt-> close();
                     } else {
                         // Prints message to the user if the guest was not inserted into the table.
-                        echo '<p>Guest not inserted. Please try again.</p>';
-                        echo '<br><center><a href="index.php" class="button">Try Again</a></br></center>';
+                        echo '<div>Unsuccessful Registration. Please try again.<br><br>';
+                        echo '<form action="index.php">';
+                        echo '<input type="submit" name="submit" class="pink" value="Try Again"/> </form></div>';
                     }
                 } else {
                     $phone = $_POST['phone'];
@@ -82,27 +82,31 @@
                     $sellerstmt->bind_param('is', $user_id, $phone);
                     if($sellerstmt->execute()) {
                         // If statement executes successfully, then prints a success message to the user.
-                        echo '<p>' . $name . ' added successfully!</p>';
-                        echo '<br><center><a href="login.php" class="button">Please Proceed to Login</a></br></center>';
+                        echo '<div>' . $name . ' has been added successfully!<br><br>';
+                        echo '<form action="login.php">';
+                        echo '<input type="submit" name="submit" class="pink" value="Please Proceed to Login"/> </form></div>';
                         // Close statement and connection.
                         $sellerstmt-> close();
                     } else {
                         // Prints message to the user if the guest was not inserted into the table.
-                        echo '<p>Guest not inserted. Please try again.</p>';
-                        echo '<br><center><a href="index.php" class="button">Try Again</a></br></center>';
+                        echo '<div>Unsuccessful Registration. Please try again.<br><br>';
+                        echo '<form action="index.php">';
+                        echo '<input type="submit" name="submit" class="pink" value="Try Again"/> </form></div>';
                     }
                 }
              } 
             else {
                 // Prints message to the user if the guest was not inserted into the table.
-                echo '<p>Guest not inserted. Please try again. (The email may already be taken).</p>';
-                echo '<br><center><a href="index.php" class="button">Try Again</a></br></center>';
+                echo '<div>Unsuccessful Registration. The email may already be taken. <br> Please try again with a different email.<br><br>';
+                echo '<form action="index.php">';
+                echo '<input type="submit" name="submit" class="pink" value="Try Again"/> </form></div>';
             }
         }
         // Prints message to the user if the guest was not inserted into the table.
         else {
-            echo '<p>Guest not inserted. Please try again. (The email may already be taken).</p>';
-            echo '<br><center><a href="index.php" class="button">Try Again</a></br></center>';
+            echo '<div>Unsuccessful Registration. The email may already be taken. <br> Please try again with a different email.<br><br>';
+            echo '<form action="index.php">';
+            echo '<input type="submit" name="submit" class="pink" value="Try Again"/> </form> </div>';
         }
 
         // Close statement and connection.

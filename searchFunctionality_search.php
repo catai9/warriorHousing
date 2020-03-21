@@ -1,74 +1,106 @@
+<!-- Search Listing Continued Page -->
+
+<head>
+  <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/buyerHome.css">
+</head>
+
 <body>
-<h1>Search Street Name</h1>
-<?php
+	
+	<?php
+		$user_id = $_POST["user_id"];
+		$category = $_POST["category"];
+		$search = $_POST["search"];
 
-$user_id = $_POST["user_id"];
+		// Enable error logging: 
+		error_reporting(E_ALL ^ E_NOTICE);
+		// mysqli connection via user-defined function
 
-// Enable error logging: 
-error_reporting(E_ALL ^ E_NOTICE);
-// mysqli connection via user-defined function
+		include('./my_connect.php');
+		$mysqli1 = get_mysqli_conn();
 
-include('./my_connect.php');
-$mysqli1 = get_mysqli_conn();
-$mysqli2 = get_mysqli_conn();
+		// SQL statement
+		$sql = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
+					FROM Rental_Listing r
+					WHERE r.Street_Name =?";
+		$sql2 = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
+					FROM Rental_Listing r
+					WHERE r.City =?";
 
-// SQL statement
-$sql = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
-            FROM Rental_Listing r
-			WHERE r.Street_Name =?";
-$sql2 = "SELECT r.Rental_Listing_ID, r.City, r.Street_Name, r.House_Number, r.Vacancies, r.Rent_Per_Person, r.Availability_Length
-            FROM Rental_Listing r
-			WHERE r.City =?";
-//does this change 
-// Prepared statement, stage 1: prepare
-$stmt1 = $mysqli1->prepare($sql);
-$stmt2 = $mysqli2->prepare($sql2);
+		echo '<form action="buyerHome.php" method="post">
+		<input type="hidden" name="user_id" value="' . $user_id . '"/>
+		<input type="submit" class="orange" value="Clear Search Parameters"/>
+		</form>';
 
-// Prepared statement, stage 2: bind and execute 
+		echo '<h1>Warrior Housing</h1>';
 
-$query1 = $_GET['search']; 
-$query2 = $_GET['city']; 
+		echo '<div><table style="width:100%">';
+		echo '<tr>';
+			echo '<th class="address">Address</th>';
+			echo '<th>Vacancies</th>';
+			echo '<th>Rent Per Person</th>';
+			echo '<th>Availability Length (months)</th>';
+			echo '<th>More Details</th>';
+		echo '</tr>';
 
-
-// "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt1->bind_param('s', $query1); 
-$stmt1->execute();
-$stmt2->bind_param('s', $query2); 
-$stmt2->execute();
-
-/* fetch values */ 
-$stmt1->bind_result($v1, $v2, $v3, $v4, $v5, $v6, $v7); 
-$stmt2->bind_result($v1, $v2, $v3, $v4, $v5, $v6, $v7); 
-
-echo '<table>';
-	echo '<table style="width:100%">';
-	echo '<tr>';
-	echo '<th>Rental Listing ID</th>';
-	echo '<th>City</th>';
-	echo '<th>Street Name</th>';
-	echo '<th>House Number</th>';
-	echo '<th>Vacancies</th>';
-	echo '<th>Rent Per Person</th>';
-	echo '<th>Length of Availability</th>';
-	echo '</tr>';
-while ($stmt1->fetch()) {
-	echo '<tr><td>' . $v1 . '</td><td>' . $v2 . '</td><td>' . $v3 . '</td><td>'. $v4 . '</td><td>'. $v5 . '</td><td>'. $v6 . '</td><td>'. $v7 . '</td><td>';
-}
-while ($stmt2->fetch()) {
-	echo '<tr><td>' . $v1 . '</td><td>' . $v2 . '</td><td>' . $v3 . '</td><td>'. $v4 . '</td><td>'. $v5 . '</td><td>'. $v6 . '</td><td>'. $v7 . '</td><td>';
-}
-echo '</table>';
-
-/* close statement and connection*/ 
-$stmt1->close(); 
-$stmt2->close(); 
-$mysqli1->close();
-$mysqli2->close();
-?>
-
-<form id="form3" action="searchFunctionality_input.php" method="post">
-<input type="hidden" name="user_id" value="' . $user_id . '"/>
-	<input type="submit" value="Back"/>
-</form>
+		if($category == "street"){
+			$stmt1 = $mysqli1->prepare($sql);
+			$stmt1->bind_param('s', $search); 
+			$stmt1->execute();
+			// Bind result variables 
+			$stmt1->bind_result($rental_listing_ID, $city, $street_name, $house_number, $vacancies, $rent_per_person, $availability_length); 
+		
+			//printing output in html table
+			while ($stmt1->fetch()) {
+				$matching = true;
+				echo '<tr><td class="address">' . $house_number . ' ' . $street_name .', ' . $city . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td>';
+				
+				echo '<td>';
+				echo '<form action="listingDetails.php" method="post">';
+				echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+				echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>'; 
+				echo '<br>';
+				echo '<!-- The button for rate -->';
+				echo '<input type="submit" class="green" value="See More"/>';
+				echo '</br>';
+				echo '</form></td>';
+			}
+			$stmt1->close(); 
+		
+		} else {
+			$stmt2 = $mysqli1->prepare($sql2);
+			$stmt2->bind_param('s', $search); 
+			$stmt2->execute();
+			// Bind result variables 
+			$stmt2->bind_result($rental_listing_ID, $city, $street_name, $house_number, $vacancies, $rent_per_person, $availability_length); 
+			
+			//printing output in html table
+			while ($stmt2->fetch()) {
+				$matching = true;
+				echo '<tr><td class="address">' . $house_number . ' ' . $street_name .', ' . $city . '</td><td>'. $vacancies . '</td><td>'. $rent_per_person . '</td><td>'. $availability_length. '</td>';
+				
+				echo '<td>';
+				echo '<form action="listingDetails.php" method="post">';
+				echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
+				echo '<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/>'; 
+				echo '<br>';
+				echo '<!-- The button for rate -->';
+				echo '<input type="submit" class="green" value="See More"/>';
+				echo '</br>';
+				echo '</form></td>';
+			}
+			$stmt2->close(); 
+		
+		}
+		if(!$matching){
+			echo '<p>No matches found.</p>';
+			echo '<tr><td class="address">N/A</td><td>N/A</td><td>N/A</td><td>N/A</td>';
+		}
+		echo '</table>';
+		echo '</div>';
+		
+		/* close statement and connection*/ 
+		$mysqli1->close();
+	?>
 
 </body>

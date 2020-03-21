@@ -1,73 +1,63 @@
-<!-- Page 9 -->
-<!-- Rate Listing Page -->
+<!-- Rate Listing Continued -->
 
 <head>
   <title>Warrior Housing</title>
+  <link rel="stylesheet" href="styles/listing.css">
 </head>
 
 <body>
-	<h1>Warrior Housing</h1>
-	<!-- TO DO: CHANGE PAGE SUBTITLE -->
-	<h2>Rate Listing Submission Page</h2>
-
-<!-- TO DO: CHANGE REDIRECT PAGE-->
-	<!-- Which page it will direct go upon submitting the form. -->
-	<!-- In this example, if the form submission is successful, it will redirect to TEMPLATETWO.php -->
-	<form action="buyerHome.php" method="post">
 
 	<?php
-			// Enable error logging: 
-			error_reporting(E_ALL ^ E_NOTICE);
-			// mysqli connection via user-defined function
-			include ('./my_connect.php');
-            $mysqli = get_mysqli_conn();
+		// Enable error logging: 
+		error_reporting(E_ALL ^ E_NOTICE);
+		// mysqli connection via user-defined function
+		include ('./my_connect.php');
+		$mysqli = get_mysqli_conn();
 
+		$sql = "INSERT INTO rating
+		VALUES (?, ?, ?, ?)"; 
 
-            $sql = "INSERT INTO rating
-            VALUES (?, ?, ?, ?)"; 
+		// Prepared statement, stage 1: prepare
+		$stmt = $mysqli->prepare($sql);
 
+		//these values are inputted by the user
+		$rental_listing_ID =  $_POST["rental_listing_ID"]; //TODO Handle POST parameters
+		$user_id =  $_POST['user_id'];
+		$Score =  $_POST['rating_score'];
+		$Comments =  $_POST['rating_comment'];//TODO Handle POST parameters
 
-            // Prepared statement, stage 1: prepare
-            $stmt = $mysqli->prepare($sql);
+		// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
+		$stmt-> bind_param('iiis', $rental_listing_ID, $user_id, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
 
-            //these values are inputted by the user
-            $rental_listing_ID =  $_POST["rental_listing_ID"]; //TODO Handle POST parameters
-            $user_id =  $_POST['user_id'];
-            $Score =  $_POST['rating_score'];
-            $Comments =  $_POST['rating_comment'];//TODO Handle POST parameters
+		echo '<form action="buyerHome.php" method="post">
+        <input type="hidden" name="user_id" value="' . $user_id . '"/>
+        <input type="submit" class="link" value="Return to Home"/>
+		</form>';
 
-// TO DO: BIND NEEDED RESULT VARIABLES.
-			// Bind result variables 
-			// In this example, aircraft_id and aircraft_name will be returned from the SQL statement.
-			// Thus, the returned values will be stored in variables named aircraft_id and aircraft_name.
+		echo '<h1>Warrior Housing</h1>';
 
-// (3) "i" for integer, "d" for double, "s" for string, "b" for blob 
-$stmt-> bind_param('iiis', $rental_listing_ID, $user_id, $Score, $Comments);//TODO Bind Php variables to MySQL parameters 
-
-
-// $stmt->execute() function returns boolean indicating success 
-
-if ($stmt->execute()) 
-{ 
-echo '<h1>Success!</h1>'; 
-echo '<p>A new rating was created by User: ' . $user_id . ', for rental listing ' . $rental_listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
-
-echo '<form id="form22" action="buyerHome.php" method="post">';
-echo '<input type="hidden" name="user_id" value="' . $user_id . '"/>'; 
-
-echo '<input type="submit" value="Return to buyer home page"/>'; 
-echo '</form>';	
-
-} 
-else 
-{
-echo '<h1>You Failed</h1>'; 
-echo '<p>A new rating was not created by User: ' . $user_id . ', for rental listing ' . $rental_listing_ID .  '. A score of ' .$Score .' and comments '. $Comments . 'were submitted. ' . '</p>';
-echo 'Execute failed: (' . $stmt->errno . ') ' . $stmt->error; 
-} 
-$stmt->close(); 
-$mysqli->close();
-?>
-	</form>
+		// $stmt->execute() function returns boolean indicating success 
+		echo '<div>';
+		if ($stmt->execute()) { 
+			echo '<h2>Successful Submission</h2>';
+			echo 'Your rating has been successfully submitted. We appreciate hearing your opinion.'; 
+			echo '<form action="buyerHome.php" method="post">
+				<input type="hidden" name="user_id" value="' . $user_id . '"/> <br>
+				<input type="submit" class="purple center" value="Return to Home"/>
+				</form>';
+		} 
+		else {
+			echo '<h2>An error occurred</h2>'; 
+			echo '<p>Please try again. Note that only one rating may be submitted per user for a specific listing.</p>';
+			echo '<form action="rateListing.php" method="post">
+				<input type="hidden" name="user_id" value="' . $user_id . '"/>
+				<input type="hidden" name="rental_listing_ID" value="' . $rental_listing_ID . '"/> <br> <br>
+				<input type="submit" class="purple center" value="Try Again"/>
+				</form>';
+		} 
+		echo '</div>';
+		$stmt->close(); 
+		$mysqli->close();
+	?>
 </body>
 

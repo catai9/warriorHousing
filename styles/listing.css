@@ -7,56 +7,52 @@ h1 {
     text-align: center;
 }
 
-h2,h4 {
-    text-align: left;
-    margin-bottom: 0;
-}
-
-input[type=text],[type=password],[type=email], select, input[type=date], option, input[type=number] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=checkbox] {
-    width: 20px;
-    height: 20px;
-  }
-
 input[type=submit] {
   /*By default, makes all the buttons pink. Else, colour-codes them to their respective option colours on the Home page.*/
-  width: 25%;
-  color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin: 0 auto;
-  display: block;
+}
+
+input[type=text], input[type=number], select, option {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.link{
+    color: purple;
+    background-color: white;
+    text-decoration: underline;
 }
 
 /* Colour code for Login Functionality. */
-.teal{
-    background-color: darkcyan;
+.purple{
+    background-color: purple;
+    color: white;
 }
 
-/* Colour code for Upload Listing Functionality. */
-.blue{
-    background-color: blue;
+.orange{
+    background-color: darkorange;
+    color: white;
+    margin: 0 auto;
+    display: block;
 }
 
-/* Colour code for Register Functionality. */
-.pink{
-   background-color: deeppink;
+.purple.right {
+    float:right;
 }
 
-input[type=submit]:hover {
-  background-color: black;
+.purple.center{
+    margin: 0 auto;
+    display: block;
 }
 
 div {
@@ -64,7 +60,11 @@ div {
   background-color: #f2f2f2;
   padding: 20px 50px 50px 50px;
   font-size: 20px;
-  text-align: center;
+  text-align: left;
+}
+
+p.header {
+    text-decoration: underline;
 }
 a {
     font-size: 20px;   
@@ -76,4 +76,5 @@ a.button {
 p {
     text-align: left;
     margin-bottom: 0;
+    font-size: 30px;
 }
